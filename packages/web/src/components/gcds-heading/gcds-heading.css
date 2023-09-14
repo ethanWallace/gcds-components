@@ -1,0 +1,240 @@
+@layer reset,
+defaults,
+variants;
+
+@layer reset {
+  :host {
+    display: block;
+    /* TO DO FIX */
+    color: var(--gcds-text-primary);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      box-sizing: border-box;
+      margin: 0;
+    }
+  }
+}
+
+@layer defaults {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  h1.gcds-heading {
+    font: var(--gcds-font-h1);
+  }
+
+  h2.gcds-heading {
+    font: var(--gcds-font-h2);
+  }
+
+  h3.gcds-heading {
+    font: var(--gcds-font-h3);
+  }
+
+  h4.gcds-heading {
+    font: var(--gcds-font-h4);
+  }
+
+  h5.gcds-heading {
+    font: var(--gcds-font-h5);
+  }
+
+  h6.gcds-heading {
+    font: var(--gcds-font-h6);
+  }
+}
+
+@layer variants {
+  :host {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      /* Margin top */
+      &.mt-0 {
+        margin-block-start: var(--gcds-container-spacing-0);
+      }
+
+      &.mt-50 {
+        margin-block-start: var(--gcds-container-spacing-50);
+      }
+
+      &.mt-100 {
+        margin-block-start: var(--gcds-container-spacing-100);
+      }
+
+      &.mt-150 {
+        margin-block-start: var(--gcds-container-spacing-150);
+      }
+
+      &.mt-200 {
+        margin-block-start: var(--gcds-container-spacing-200);
+      }
+
+      &.mt-250 {
+        margin-block-start: var(--gcds-container-spacing-250);
+      }
+
+      &.mt-300 {
+        margin-block-start: var(--gcds-container-spacing-300);
+      }
+
+      &.mt-400 {
+        margin-block-start: var(--gcds-container-spacing-400);
+      }
+
+      &.mt-450 {
+        margin-block-start: var(--gcds-container-spacing-450);
+      }
+
+      &.mt-500 {
+        margin-block-start: var(--gcds-container-spacing-500);
+      }
+
+      &.mt-550 {
+        margin-block-start: var(--gcds-container-spacing-550);
+      }
+
+      &.mt-600 {
+        margin-block-start: var(--gcds-container-spacing-600);
+      }
+
+      &.mt-700 {
+        margin-block-start: var(--gcds-container-spacing-700);
+      }
+
+      &.mt-800 {
+        margin-block-start: var(--gcds-container-spacing-800);
+      }
+
+      &.mt-900 {
+        margin-block-start: var(--gcds-container-spacing-900);
+      }
+
+      &.mt-1000 {
+        margin-block-start: var(--gcds-container-spacing-1000);
+      }
+
+      /* Margin bottom */
+      &.mb-0 {
+        margin-block-end: var(--gcds-container-spacing-0);
+      }
+
+      &.mb-50 {
+        margin-block-end: var(--gcds-container-spacing-50);
+      }
+
+      &.mb-100 {
+        margin-block-end: var(--gcds-container-spacing-100);
+      }
+
+      &.mb-150 {
+        margin-block-end: var(--gcds-container-spacing-150);
+      }
+
+      &.mb-200 {
+        margin-block-end: var(--gcds-container-spacing-200);
+      }
+
+      &.mb-250 {
+        margin-block-end: var(--gcds-container-spacing-250);
+      }
+
+      &.mb-300 {
+        margin-block-end: var(--gcds-container-spacing-300);
+      }
+
+      &.mb-400 {
+        margin-block-end: var(--gcds-container-spacing-400);
+      }
+
+      &.mb-450 {
+        margin-block-end: var(--gcds-container-spacing-450);
+      }
+
+      &.mb-500 {
+        margin-block-end: var(--gcds-container-spacing-500);
+      }
+
+      &.mb-550 {
+        margin-block-end: var(--gcds-container-spacing-550);
+      }
+
+      &.mb-600 {
+        margin-block-end: var(--gcds-container-spacing-600);
+      }
+
+      &.mb-700 {
+        margin-block-end: var(--gcds-container-spacing-700);
+      }
+
+      &.mb-800 {
+        margin-block-end: var(--gcds-container-spacing-800);
+      }
+
+      &.mb-900 {
+        margin-block-end: var(--gcds-container-spacing-900);
+      }
+
+      &.mb-1000 {
+        margin-block-end: var(--gcds-container-spacing-1000);
+      }
+    }
+
+    /* Character limit */
+    h1.limit {
+      max-width: 35ch;
+    }
+
+    h2.limit {
+      max-width: 39ch;
+    }
+
+    h3.limit {
+      max-width: 43ch;
+    }
+
+    h4.limit {
+      max-width: 47ch;
+    }
+
+    h5.limit {
+      max-width: 51ch;
+    }
+
+    h6.limit {
+      max-width: 55ch;
+    }
+
+    /* H1 border */
+    h1 {
+      &.b-subtle {
+        border-bottom: 1px solid #af3c43;
+        margin-bottom: 0.2em;
+        margin-top: 1em;
+        padding-bottom: 0.2em;
+      }
+
+      &.b-strong:after {
+        border-bottom: 0.18em solid #af3c43;
+        content: '';
+        display: block;
+        padding-bottom: 8px;
+        width: 70px;
+      }
+    }
+  }
+}
