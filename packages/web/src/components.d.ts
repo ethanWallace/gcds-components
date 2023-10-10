@@ -539,6 +539,54 @@ export namespace Components {
          */
         "skipToHref": string;
     }
+    interface GcdsHeading {
+        /**
+          * Sets the line length to a maximum amount of characters per line for each heading level, ensuring a comfortable, accessible reading length.
+         */
+        "characterLimit"?: boolean;
+        /**
+          * Adds margin below the heading.
+         */
+        "marginBottom"?: | '0'
+    | '50'
+    | '100'
+    | '150'
+    | '200'
+    | '250'
+    | '300'
+    | '400'
+    | '450'
+    | '500'
+    | '550'
+    | '600'
+    | '700'
+    | '800'
+    | '900'
+    | '1000';
+        /**
+          * Adds margin above the heading.
+         */
+        "marginTop"?: | '0'
+    | '50'
+    | '100'
+    | '150'
+    | '200'
+    | '250'
+    | '300'
+    | '400'
+    | '450'
+    | '500'
+    | '550'
+    | '600'
+    | '700'
+    | '800'
+    | '900'
+    | '1000';
+        /**
+          * Sets the appropriate HTML tag for the selected level.
+         */
+        "tag": 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+    }
     interface GcdsHint {
         /**
           * Hint displayed below the label and above the input field.
@@ -1239,6 +1287,12 @@ declare global {
         prototype: HTMLGcdsHeaderElement;
         new (): HTMLGcdsHeaderElement;
     };
+    interface HTMLGcdsHeadingElement extends Components.GcdsHeading, HTMLStencilElement {
+    }
+    var HTMLGcdsHeadingElement: {
+        prototype: HTMLGcdsHeadingElement;
+        new (): HTMLGcdsHeadingElement;
+    };
     interface HTMLGcdsHintElement extends Components.GcdsHint, HTMLStencilElement {
     }
     var HTMLGcdsHintElement: {
@@ -1370,6 +1424,7 @@ declare global {
         "gcds-footer": HTMLGcdsFooterElement;
         "gcds-grid": HTMLGcdsGridElement;
         "gcds-header": HTMLGcdsHeaderElement;
+        "gcds-heading": HTMLGcdsHeadingElement;
         "gcds-hint": HTMLGcdsHintElement;
         "gcds-icon": HTMLGcdsIconElement;
         "gcds-input": HTMLGcdsInputElement;
@@ -1978,6 +2033,54 @@ declare namespace LocalJSX {
           * Top navigation - Skip to content href
          */
         "skipToHref": string;
+    }
+    interface GcdsHeading {
+        /**
+          * Sets the line length to a maximum amount of characters per line for each heading level, ensuring a comfortable, accessible reading length.
+         */
+        "characterLimit"?: boolean;
+        /**
+          * Adds margin below the heading.
+         */
+        "marginBottom"?: | '0'
+    | '50'
+    | '100'
+    | '150'
+    | '200'
+    | '250'
+    | '300'
+    | '400'
+    | '450'
+    | '500'
+    | '550'
+    | '600'
+    | '700'
+    | '800'
+    | '900'
+    | '1000';
+        /**
+          * Adds margin above the heading.
+         */
+        "marginTop"?: | '0'
+    | '50'
+    | '100'
+    | '150'
+    | '200'
+    | '250'
+    | '300'
+    | '400'
+    | '450'
+    | '500'
+    | '550'
+    | '600'
+    | '700'
+    | '800'
+    | '900'
+    | '1000';
+        /**
+          * Sets the appropriate HTML tag for the selected level.
+         */
+        "tag": 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
     }
     interface GcdsHint {
         /**
@@ -2610,6 +2713,7 @@ declare namespace LocalJSX {
         "gcds-footer": GcdsFooter;
         "gcds-grid": GcdsGrid;
         "gcds-header": GcdsHeader;
+        "gcds-heading": GcdsHeading;
         "gcds-hint": GcdsHint;
         "gcds-icon": GcdsIcon;
         "gcds-input": GcdsInput;
@@ -2651,6 +2755,7 @@ declare module "@stencil/core" {
             "gcds-footer": LocalJSX.GcdsFooter & JSXBase.HTMLAttributes<HTMLGcdsFooterElement>;
             "gcds-grid": LocalJSX.GcdsGrid & JSXBase.HTMLAttributes<HTMLGcdsGridElement>;
             "gcds-header": LocalJSX.GcdsHeader & JSXBase.HTMLAttributes<HTMLGcdsHeaderElement>;
+            "gcds-heading": LocalJSX.GcdsHeading & JSXBase.HTMLAttributes<HTMLGcdsHeadingElement>;
             "gcds-hint": LocalJSX.GcdsHint & JSXBase.HTMLAttributes<HTMLGcdsHintElement>;
             "gcds-icon": LocalJSX.GcdsIcon & JSXBase.HTMLAttributes<HTMLGcdsIconElement>;
             "gcds-input": LocalJSX.GcdsInput & JSXBase.HTMLAttributes<HTMLGcdsInputElement>;

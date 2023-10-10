@@ -3,8 +3,7 @@ import { Component, Element, Host, Watch, Prop, h } from '@stencil/core';
 @Component({
   tag: 'gcds-heading',
   styleUrl: 'gcds-heading.css',
-  shadow: false,
-  scoped: true,
+  shadow: true,
 })
 export class GcdsHeading {
   @Element() el: HTMLElement;
@@ -32,20 +31,6 @@ export class GcdsHeading {
    * each heading level, ensuring a comfortable, accessible reading length.
    */
   @Prop() characterLimit?: boolean = true;
-
-  /**
-   * Adds an optional red border below a H1 heading.
-   */
-  @Prop({ mutable: true }) h1Border?: 'subtle' | 'strong' | 'none' = 'none';
-
-  @Watch('h1Border')
-  validateH1Border(newValue: string) {
-    const values = ['subtle', 'strong', 'none'];
-
-    if (!values.includes(newValue)) {
-      this.h1Border = 'none';
-    }
-  }
 
   /**
    * Adds margin above the heading.
@@ -144,13 +129,12 @@ export class GcdsHeading {
   componentWillLoad() {
     // Validate attributes and set defaults
     this.validateTag(this.tag);
-    this.validateH1Border(this.h1Border);
     this.validateMarginTop(this.marginTop);
     this.validateMarginBottom(this.marginBottom);
   }
 
   render() {
-    const { characterLimit, h1Border, marginTop, marginBottom, tag } = this;
+    const { characterLimit, marginTop, marginBottom, tag } = this;
 
     const Tag = tag;
 
@@ -160,7 +144,6 @@ export class GcdsHeading {
           class={`
             gcds-heading
             ${characterLimit ? 'limit' : ''}
-            ${h1Border != 'none' ? `b-${h1Border}` : ''}
             ${marginTop ? `mt-${marginTop}` : ''}
             ${marginBottom ? `mb-${marginBottom}` : ''}
           `}
