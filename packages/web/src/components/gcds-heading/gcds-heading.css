@@ -228,27 +228,27 @@ variants;
 
     /* Character limit */
     h1.limit {
-      max-width: 31ch;
+      max-width: var(--gcds-heading-character-limit-h1);
     }
 
     h2.limit {
-      max-width: 35ch;
+      max-width: var(--gcds-heading-character-limit-h2);
     }
 
     h3.limit {
-      max-width: 40ch;
+      max-width: var(--gcds-heading-character-limit-h3);
     }
 
     h4.limit {
-      max-width: 45ch;
+      max-width: var(--gcds-heading-character-limit-h4);
     }
 
     h5.limit {
-      max-width: 50ch;
+      max-width: var(--gcds-heading-character-limit-h5);
     }
 
     h6.limit {
-      max-width: 57ch;
+      max-width: var(--gcds-heading-character-limit-h6);
     }
   }
 }
