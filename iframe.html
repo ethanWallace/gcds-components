@@ -59,8 +59,17 @@
     left: 0;
     right: 0;
     padding: 20px;
-    font-family: 'Nunito Sans', -apple-system, '.SFNSText-Regular', 'San Francisco',
-      BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family:
+      'Nunito Sans',
+      -apple-system,
+      '.SFNSText-Regular',
+      'San Francisco',
+      BlinkMacSystemFont,
+      'Segoe UI',
+      'Helvetica Neue',
+      Helvetica,
+      Arial,
+      sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow: auto;
   }
@@ -254,7 +263,9 @@
 
   .sb-argstableBlock-body {
     border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0 1px 3px 1px, rgba(0, 0, 0, 0.065) 0 0 0 1px;
+    box-shadow:
+      rgba(0, 0, 0, 0.1) 0 1px 3px 1px,
+      rgba(0, 0, 0, 0.065) 0 0 0 1px;
   }
   .sb-argstableBlock-body tr {
     background: transparent;
@@ -323,6 +334,15 @@
     font-size: var(--gcds-font-sizes-text);
   }
 
+  /* ----- FRAME ----- */
+  #storybook-docs > .sbdocs-wrapper {
+    padding: 0;
+  }
+
+  #storybook-docs > .sbdocs-wrapper > .sbdocs-content {
+    max-width: var(--gcds-container-size-xl);
+  }
+
   /* ----- OVERVIEW PAGE ----- */
   .intro-boxes {
     background-color: var(--gcds-color-grayscale-50);
@@ -340,11 +360,71 @@
   /* ----- PROPERTIES PAGE ----- */
 
   /* Component Preview - hide React code */
-  .sb-show-main #storybook-docs .sb-story > div > *:not(.hydrated)  {
+  .sb-show-main #storybook-docs .sb-story > div > *:not(.hydrated) {
     font-size: 0;
     color: var(--gcds-text-light);
     padding: 0 !important;
     border: none !important;
+  }
+
+  /* Add space between component preview + copy & hide code btns */
+  .docs-story .sb-story {
+    padding-block-end: var(--gcds-spacing-500);
+  }
+
+  .docs-story .css-25bv1u,
+  .css-3s4ai0 .css-111a2cx {
+    right: auto !important;
+    left: 0 !important;
+  }
+
+  .css-3s4ai0 .css-111a2cx {
+    background-color: transparent !important;
+  }
+
+  .docs-story .docblock-code-toggle,
+  .css-3s4ai0 .css-lp0lj7,
+  .copy-code-btn {
+    border: var(--gcds-button-border-width) solid currentColor !important;
+    border-radius: var(--gcds-button-border-radius) !important;
+    box-sizing: border-box;
+    font: var(--gcds-button-font) !important;
+    font-size: 0.875rem !important;
+    margin: 0 var(--gcds-spacing-150) var(--gcds-spacing-250)
+      var(--gcds-spacing-300) !important;
+    padding: var(--gcds-spacing-200) var(--gcds-spacing-150) !important;
+    transition: all 0.15s ease-in-out 0s;
+  }
+
+  .docs-story .docblock-code-toggle {
+    color: var(--gcds-button-secondary-default-text) !important;
+  }
+
+  .css-3s4ai0 .css-lp0lj7 {
+    background-color: #262626 !important;
+    color: var(--gcds-text-light) !important;
+  }
+
+  .docs-story .docblock-code-toggle:hover:not(:focus) {
+    background-color: var(--gcds-button-secondary-hover-background);
+    border-color: var(--gcds-button-secondary-default-text);
+    color: var(--gcds-button-secondary-default-text);
+  }
+
+  .css-3s4ai0 .css-lp0lj7:hover:not(:focus) {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  .docs-story .docblock-code-toggle:focus,
+  .css-3s4ai0 .css-lp0lj7:focus,
+  .copy-code-btn:focus {
+    background-color: var(--gcds-focus-background) !important;
+    border-color: var(--gcds-focus-background) !important;
+    color: var(--gcds-focus-text) !important;
+    outline: var(--gcds-button-shared-focus-outline-width) solid
+      var(--gcds-focus-background) !important;
+    outline-offset: var(--gcds-button-border-width) !important;
+    box-shadow: var(--gcds-button-shared-focus-box-shadow);
   }
 
   /* Change props table headings */
@@ -358,31 +438,17 @@
     color: var(--gcds-text-primary) !important;
   }
 
-  .docblock-argstable-head th:nth-child(1) span:before {
-    content: 'Property | Propriété';
-  }
-
-  .docblock-argstable-head th:nth-child(2) span:before {
-    content: 'Data type | Type de donnée';
-  }
-
-  .docblock-argstable-head th:nth-child(3) span:before {
-    content: 'Default value | Valeur par défaut';
-  }
-
-  .docblock-argstable-head th:nth-child(4) span:before {
-    content: 'Values | Valeurs';
-  }
-
   /* Table Styling */
   .docblock-argstable-head tr th,
   .docblock-argstable-body tr td.css-11nj37o,
-  .docblock-argstable-body tr .css-11nj37o~td {
+  .docblock-argstable-body tr .css-11nj37o ~ td,
+  .sub-table-heading {
     background-color: var(--gcds-color-grayscale-0) !important;
     border-radius: 0 !important;
     color: var(--gcds-text-primary) !important;
     font-weight: var(--gcds-font-weights-bold);
     padding-block-start: var(--gcds-spacing-400);
+    border-inline: 0 !important;
   }
 
   .css-tm6i3o.css-tm6i3o {
@@ -391,6 +457,11 @@
 
   .css-quknxc.css-quknxc tbody {
     box-shadow: none !important;
+  }
+
+  .css-quknxc.css-quknxc tbody {
+    box-shadow: none !important;
+    filter: none !important;
   }
 
   .docblock-argstable-body .css-1oi7qoy td {
@@ -428,6 +499,7 @@
     border: 0 !important;
   }
 
+  .docblock-argstable-body td .css-1jvt1oy,
   .docblock-argstable-body td .css-um6g9i,
   .docblock-argstable-body td .css-1qot2ot,
   .docblock-argstable-body td .css-4q52yj {
@@ -436,11 +508,12 @@
     border: var(--gcds-border-width-sm) solid currentColor;
   }
 
-  .docblock-argstable-body td {
+  .docblock-argstable-body td:not(.sub-table-heading) {
     vertical-align: middle !important;
     background-color: #262626 !important;
     color: var(--gcds-text-light);
-    border-bottom: var(--gcds-border-width-sm) solid var(--gcds-color-grayscale-700) !important;
+    border-bottom: var(--gcds-border-width-sm) solid
+      var(--gcds-color-grayscale-700) !important;
   }
 
   .docblock-argstable-body td span.css-a2cl28 {
@@ -457,7 +530,7 @@
 
   .css-je0wjx {
     font-weight: var(--gcds-font-weights-semibold) !important;
-    letter-spacing: .75px;
+    letter-spacing: 0.75px;
     background-color: transparent !important;
     color: var(--gcds-text-light) !important;
     border: 0 !important;
@@ -466,7 +539,8 @@
   .css-tvcum3,
   .css-f2g3hl,
   .css-172ajqq,
-  .css-e3ijes {
+  .css-e3ijes,
+  .css-1p58akv {
     background-color: var(--gcds-color-grayscale-700) !important;
     border: var(--gcds-border-width-sm) solid var(--gcds-color-grayscale-0) !important;
     padding: var(--gcds-spacing-50) !important;
@@ -476,7 +550,8 @@
   .css-f2g3hl span,
   .css-172ajqq span,
   .css-e3ijes spa,
-  .css-130cftl {
+  .css-130cftl,
+  .css-1p58akv {
     color: var(--gcds-text-light) !important;
   }
 
@@ -484,14 +559,14 @@
     fill: var(--gcds-text-light) !important;
   }
 
-  .css-tvcum3 input:checked~span:last-of-type,
-  .css-tvcum3 input:not(:checked)~span:first-of-type,
-  .css-f2g3hl input:checked~span:last-of-type,
-  .css-f2g3hl input:not(:checked)~span:first-of-type,
-  .css-172ajqq input:checked~span:last-of-type,
-  .css-172ajqq input:not(:checked)~span:first-of-type,
-  .css-e3ijes input:checked~span:last-of-type,
-  .css-e3ijes input:not(:checked)~span:first-of-type {
+  .css-tvcum3 input:checked ~ span:last-of-type,
+  .css-tvcum3 input:not(:checked) ~ span:first-of-type,
+  .css-f2g3hl input:checked ~ span:last-of-type,
+  .css-f2g3hl input:not(:checked) ~ span:first-of-type,
+  .css-172ajqq input:checked ~ span:last-of-type,
+  .css-172ajqq input:not(:checked) ~ span:first-of-type,
+  .css-e3ijes input:checked ~ span:last-of-type,
+  .css-e3ijes input:not(:checked) ~ span:first-of-type {
     background: var(--gcds-color-grayscale-0) !important;
     color: var(--gcds-text-primary) !important;
   }
@@ -500,9 +575,92 @@
     background-color: var(--gcds-color-grayscale-700) !important;
   }
 
+  .docblock-argstable input,
+  .docblock-argstable textarea,
+  .docblock-argstable .css-obbby0 {
+    min-width: 13rem !important;
+  }
+
+  /* Props table focus styles - form elements */
+  .css-6wu5zk:focus-within {
+    overflow: visible !important;
+  }
+
+  .docblock-argstable input:focus,
+  .docblock-argstable textarea:focus,
+  .docblock-argstable .css-obbby0:focus-within {
+    box-shadow: 0 0 0 var(--gcds-border-width-md) #262626 !important;
+    outline-offset: var(--gcds-input-border-width) !important;
+    border-color: #262626 !important;
+    outline: var(--gcds-input-outline-width) solid var(--gcds-color-grayscale-0) !important;
+    border-radius: var(--gcds-link-focus-border-radius) !important;
+  }
+
+  .docblock-argstable .css-obbby0:focus-within select {
+    box-shadow: none !important;
+  }
+
+  .css-tvcum3 input[type='checkbox']:focus {
+    box-shadow: none !important;
+  }
+
+  /* Props table focus styles - table headings */
+  .css-d474as:focus {
+    font-size: 0.75rem;
+    background-color: var(--gcds-focus-background) !important;
+    border-color: var(--gcds-focus-background) !important;
+    color: var(--gcds-focus-text) !important;
+    border-radius: var(--gcds-button-border-radius) !important;
+    outline: var(--gcds-button-shared-focus-outline-width) solid
+      var(--gcds-focus-background) !important;
+    outline-offset: var(--gcds-button-border-width) !important;
+    box-shadow: var(--gcds-button-shared-focus-box-shadow);
+  }
+
   /* Canvas preview */
   .css-ikdg6z {
     background-color: var(--gcds-color-grayscale-50);
+  }
+
+  /* Code preview comments */
+  .language-html .token.comment {
+    color: var(--gcds-text-light) !important;
+  }
+
+  /* Code preview white space */
+  .language-html {
+    white-space: break-spaces !important;
+  }
+
+  .resources-list {
+    margin: var(--gcds-spacing-400) 0 !important;
+  }
+
+  .resources-list li {
+    margin: 0 0 var(--gcds-spacing-300) !important;
+  }
+
+  /* ----- CUSTOM COPY CODE BTNS ----- */
+
+  .copy-code-btn {
+    min-width: 11.35rem;
+    cursor: pointer;
+    background-color: transparent !important;
+    color: var(--gcds-button-secondary-default-text) !important;
+    border: var(--gcds-button-border-width) solid currentColor !important;
+  }
+
+  .copy-code-btn:hover:not(:focus) {
+    background-color: var(--gcds-button-secondary-hover-background) !important;
+  }
+
+  .copy-code-btn:first-letter {
+    text-transform: uppercase;
+  }
+
+  /* Hide default Storybook copy btn */
+  .css-lp0lj7 {
+    display: none !important;
   }
 
   /* ----- COMPONENT SPECIFIC ----- */
@@ -541,6 +699,12 @@
     border: var(--gcds-border-width-sm) solid var(--gcds-border-default);
   }
 
+  /* gcds-link */
+  .sbdocs-preview .docs-story #story--components-link--variant-light {
+    background: var(--gcds-color-grayscale-900);
+    padding: var(--gcds-spacing-450);
+  }
+
   /* gcds-signature */
   .sbdocs-preview .docs-story #story--components-signature--signature-white,
   .sbdocs-preview .docs-story #story--components-signature--wordmark-white {
@@ -548,10 +712,337 @@
     padding: var(--gcds-spacing-450);
   }
 
+  /* gcds-text */
+  .sbdocs-preview .docs-story #story--components-text--light {
+    background: var(--gcds-color-grayscale-900);
+    padding: var(--gcds-spacing-450);
+  }
+
   /* gcds-top-nav */
   #story--components-top-navigation--default {
     height: 300px;
-  }</style><style>#storybook-root[hidden],
+  }</style><script>const url = new URLSearchParams(window.location.search);
+
+  if (url.get('demo') && url.get('lang')) {
+    var tableTimer = setInterval(function () {
+      if (document.querySelector('.docblock-argstable')) {
+        clearInterval(tableTimer);
+        formatTable(
+          document.querySelector('.docblock-argstable'),
+          url.get('lang'),
+        );
+      }
+    }, 200);
+
+    // Change language on hide/copy code buttons
+    if (url.get('lang') === 'fr') {
+      var buttonTimer = setInterval(function () {
+        if (document.querySelector('.docblock-code-toggle')) {
+          clearInterval(buttonTimer);
+          formatFrenchButtons(document.querySelector('.docblock-code-toggle'));
+        }
+      }, 200);
+
+      copyButtonTimer();
+    }
+  }
+
+  let observer = new MutationObserver(mutation => {
+    if (mutation[0].target.parentElement.innerText === 'Copied') {
+      mutation[0].target.parentElement.innerText = 'Copié';
+    } else if (mutation[0].target.parentNode.innerText === 'Copy') {
+      mutation[0].target.parentElement.innerText = 'Copie';
+    }
+  });
+
+  function copyButtonTimer() {
+    var buttonTimer = setInterval(function () {
+      if (document.querySelector('.css-lp0lj7')) {
+        document.querySelector('.css-lp0lj7').innerText = 'Copie';
+        clearInterval(buttonTimer);
+        observer.observe(document.querySelector('.css-111a2cx'), {
+          characterData: true,
+          attributes: false,
+          childList: false,
+          subtree: true,
+        });
+      }
+    }, 200);
+  }
+
+  function formatFrenchButtons(button) {
+    setTimeout(() => {
+      button.innerText = 'Masquer le code';
+    }, 10);
+    button.addEventListener('click', () => {
+      if (!button.classList.contains('docblock-code-toggle--expanded')) {
+        setTimeout(() => {
+          button.innerText = 'Masquer le code';
+        }, 10);
+        copyButtonTimer();
+      } else {
+        setTimeout(() => {
+          button.innerText = 'Voir le code';
+        }, 10);
+      }
+    });
+  }
+
+  function formatTable(table, lang) {
+    // Format table header
+    const tableHead = [...table.querySelectorAll('th')];
+    tableHead.forEach(th => {
+      th.setAttribute('lang', lang);
+      if (lang == 'en') {
+        const thText = th.innerText;
+        if (thText == 'Name') {
+          th.innerText = 'Property';
+        } else if (thText == 'Description') {
+          th.innerText = 'Data type';
+        } else if (thText == 'Default') {
+          th.innerText = 'Default value';
+        } else if (thText == 'Control') {
+          const resetBtn = th.querySelector('button');
+          th.innerText = 'Values';
+          resetBtn.setAttribute('style', 'float: right;');
+          th.append(resetBtn);
+        }
+      } else {
+        const thText = th.innerText;
+        if (thText == 'Name') {
+          th.innerText = 'Propriété';
+        } else if (thText == 'Description') {
+          th.innerText = 'Type de donnée';
+        } else if (thText == 'Default') {
+          th.innerText = 'Valeur par défaut';
+        } else if (thText == 'Control') {
+          const resetBtn = th.querySelector('button');
+          th.innerText = 'Valeurs';
+          resetBtn.setAttribute('style', 'float: right;');
+          resetBtn.setAttribute('title', 'Réinitialiser les contrôles');
+          th.append(resetBtn);
+        }
+      }
+    });
+
+    // Table Rows
+    const tableRows = [...table.querySelectorAll('tbody > tr')];
+    tableRows.forEach(tr => {
+      // Expand collapse rows
+      if (tr.hasAttribute('class')) {
+        tr.removeAttribute('title');
+        const cellText = tr.children[0].children[1].innerText
+          .toLowerCase()
+          .split(' | ');
+        tr.children[1].innerText =
+          lang === 'en'
+            ? cellText[0].charAt(0).toUpperCase() + cellText[0].slice(1)
+            : cellText[1].replace(' items', '').charAt(0).toUpperCase() +
+              cellText[1].slice(1);
+        tr.setAttribute('class', '');
+        tr.children[1].setAttribute('colspan', '4');
+        tr.children[1].setAttribute('class', 'sub-table-heading');
+        tr.removeChild(tr.children[0]);
+      }
+
+      // Loop through table cells
+      const propertyId = `${tr.children[0].innerText.replace(
+        '*',
+        '',
+      )}-property`;
+      for (let x = 0; x < tr.children.length; x++) {
+        // Format first cell
+        // Add id attribute, translate required title
+        if (x == 0) {
+          tr.children[x].setAttribute('id', propertyId);
+          if (
+            tr.children[x].querySelector('[title=Required]') &&
+            lang == 'fr'
+          ) {
+            tr.children[x]
+              .querySelector('[title=Required]')
+              .setAttribute('lang', 'fr');
+            tr.children[x]
+              .querySelector('[title=Required]')
+              .setAttribute('title', 'Obligatoire');
+          }
+        }
+
+        // Format second cell
+        // Format slot description, add lang attribute
+        if (x == 1) {
+          const tableCell = tr.children[x];
+          if (tableCell.children.length > 1) {
+            const slotDesc = tableCell.children[0].querySelector('span');
+            const langStrings = slotDesc.innerText.split(' | ');
+            slotDesc.setAttribute('lang', lang);
+            slotDesc.innerText = lang === "en" ? langStrings[0] : langStrings[1];
+          }
+        }
+
+
+        // Format third cell
+        // Add hidden text to default value
+        if (x == 2) {
+          if (tr.children[x].innerText === '-') {
+            let span = document.createElement('span');
+            span.setAttribute('class', 'sr-only');
+  
+            if (lang === 'en') {
+              tr.children[x].setAttribute('title', 'No default value');
+              span.innerText = 'No default value';
+              tr.children[x].append(span);
+            } else {
+              tr.children[x].setAttribute('title', 'Aucune valeur par défaut');
+              tr.children[x].setAttribute('lang', 'fr');
+              span.innerText = 'Aucune valeur par défaut';
+              tr.children[x].append(span);
+            }
+          }
+        }
+
+        // Format last cell
+        // Fix form inputs
+        if (x === 3) {
+          if (tr.children[x].querySelector('select')) {
+            tr.children[x]
+              .querySelector('select')
+              .setAttribute('aria-labelledby', propertyId);
+
+            if (lang === 'fr') {
+              const firstSelectOption =
+                tr.children[x].querySelector('select').children[0];
+              firstSelectOption.setAttribute('lang', 'fr');
+              firstSelectOption.innerText = 'Choisir une option';
+            }
+          }
+
+          // Remove placeholders and assign aria-labelledby
+          if (tr.children[x].querySelector('[placeholder]')) {
+            const formElement = tr.children[x].querySelector('[placeholder]');
+            formElement.removeAttribute('placeholder');
+            formElement.setAttribute('aria-labelledby', propertyId);
+          }
+        }
+      }
+    });
+  }
+
+  // ----- Custom copy code buttons -----
+
+  // Add custom copy code buttons to code preview
+  function createCopyBtn(toggleCode, startString, endString, textEn, textFr) {
+    const toggleCodeBtnParent = toggleCode.closest('.css-25bv1u');
+
+    if (toggleCodeBtnParent && toggleCodeBtnParent.querySelectorAll('.copy-code-btn').length < 2) {
+      const copyBtn = document.createElement('button');
+      const langFr = url.get('lang') && url.get('lang') === 'fr';
+      const defaultBtnContent = langFr ? `Copier ${textFr}` : `Copy ${textEn}`;
+      const copiedBtnContent = langFr ? `${textFr} copiés` : `${textEn} copied`;
+
+      copyBtn.textContent = defaultBtnContent;
+      copyBtn.classList.add('copy-code-btn');
+
+      // Copy content to clipboard
+      function copyContent() {
+        // Get the content of the code block
+        const contentParent = toggleCode.closest('.sbdocs-preview');
+        const content = contentParent
+          ? contentParent.querySelector('.language-html').textContent
+          : '';
+        const start = content.indexOf(startString);
+        let code;
+
+        if (start !== -1) {
+          const end = endString
+            ? content.indexOf(endString, start)
+            : content.length;
+
+          // Extract the code from the content
+          if (end !== -1) {
+            code = content.substring(start + startString.length, end).trim();
+          } else {
+            console.error('End string not found in the content.');
+            return;
+          }
+
+          // Copy the extracted code to clipboard
+          navigator.clipboard
+            .writeText(code)
+            .then(() => {
+              // Update button text to indicate successful copy
+              copyBtn.textContent = copiedBtnContent;
+
+              // Revert button text to default after 1.5 seconds
+              setTimeout(() => {
+                copyBtn.textContent = defaultBtnContent;
+              }, 1500);
+            })
+            .catch(err => {
+              console.error('Unable to copy content to clipboard: ', err);
+            });
+        } else {
+          console.error('Start string not found in the content.');
+        }
+      }
+
+      copyBtn.addEventListener('click', function () {
+        copyContent();
+      });
+
+      // Append the copy button to the container
+      toggleCodeBtnParent.appendChild(copyBtn);
+    }
+  }
+
+  // Display copy buttons based on toggle button state
+  function toggleCopyBtnsDisplay(toggleCode) {
+    // Define strings representing code blocks for web components and React
+    const stringWeb = '<!-- Web component code (HTML, Angular, Vue) -->';
+    const stringReact = '<!-- React code -->';
+
+    // Check if toggle button is in expanded state
+    if (toggleCode.classList.contains('docblock-code-toggle--expanded')) {
+      // If expanded, create copy buttons for web component and React code
+      createCopyBtn(
+        toggleCode,
+        stringWeb,
+        stringReact,
+        'web component',
+        'composants web',
+      );
+      createCopyBtn(toggleCode, stringReact, '', 'React', 'React');
+    } else {
+      // If not expanded, remove existing copy buttons
+      const copyBtns = toggleCode.closest('.css-25bv1u').querySelectorAll('.copy-code-btn');
+      copyBtns.forEach(btn => btn.remove());
+    }
+  }
+
+  // Add DOMContentLoaded event
+  function domContentLoadedHandler() {
+    const domLoadInterval = setInterval(() => {
+      const toggleCodes = document.querySelectorAll('.docblock-code-toggle');
+
+      if (toggleCodes.length > 0) {
+        clearInterval(domLoadInterval);
+        // Toggle the display of copy buttons based on the toggle code button state
+        toggleCodes.forEach(toggleCode => {
+          toggleCopyBtnsDisplay(toggleCode);
+
+          // Add event listener for click event to each toggle code button
+          toggleCode.addEventListener('click', () => {
+            setTimeout(() => toggleCopyBtnsDisplay(toggleCode), 200);
+          });
+        });
+      }
+    }, 100);
+  }
+
+  // Add event listener to execute domContentLoadedHandler function when DOM content is loaded
+  document.addEventListener('DOMContentLoaded', domContentLoadedHandler);
+
+  // ----- End custom copy code buttons -----</script><style>#storybook-root[hidden],
       #storybook-docs[hidden] {
         display: none !important;
       }</style></head><body><div class="sb-preparing-story sb-wrapper"><div class="sb-loader"></div></div><div class="sb-preparing-docs sb-wrapper"><div class="sb-previewBlock"><div class="sb-previewBlock_header"><div class="sb-previewBlock_icon"></div><div class="sb-previewBlock_icon"></div><div class="sb-previewBlock_icon"></div><div class="sb-previewBlock_icon"></div></div><div class="sb-previewBlock_body"><div class="sb-loader"></div></div></div><table aria-hidden="true" class="sb-argstableBlock"><thead class="sb-argstableBlock-head"><tr><th><span>Name</span></th><th><span>Description</span></th><th><span>Default</span></th><th><span>Control</span></th></tr></thead><tbody class="sb-argstableBlock-body"><tr><td><span>propertyName</span><span title="Required">*</span></td><td><div><span>This is a short description</span></div><div class="sb-argstableBlock-summary"><div><span class="sb-argstableBlock-code">summary</span></div></div></td><td><div><span class="sb-argstableBlock-code">defaultValue</span></div></td><td><button>Set string</button></td></tr><tr><td><span>propertyName</span><span>*</span></td><td><div><span>This is a short description</span></div><div class="sb-argstableBlock-summary"><div><span class="sb-argstableBlock-code">summary</span></div></div></td><td><div><span class="sb-argstableBlock-code">defaultValue</span></div></td><td><button>Set string</button></td></tr><tr><td><span>propertyName</span><span>*</span></td><td><div><span>This is a short description</span></div><div class="sb-argstableBlock-summary"><div><span class="sb-argstableBlock-code">summary</span></div></div></td><td><div><span class="sb-argstableBlock-code">defaultValue</span></div></td><td><button>Set string</button></td></tr></tbody></table></div><div class="sb-nopreview sb-wrapper"><div class="sb-nopreview_main"><h1 class="sb-nopreview_heading sb-heading">No Preview</h1><p>Sorry, but you either have no stories or none are selected somehow.</p><ul><li>Please check the Storybook config.</li><li>Try reloading the page.</li></ul><p>If the problem persists, check the browser console, or the terminal you've run Storybook from.</p></div></div><div class="sb-errordisplay sb-wrapper"><pre id="error-message" class="sb-heading"></pre><pre class="sb-errordisplay_code"><code id="error-stack"></code></pre></div><div id="storybook-root"></div><div id="storybook-docs"></div><script>window['CONFIG_TYPE'] = "PRODUCTION";
@@ -568,7 +1059,7 @@
           
       
           
-            window['FEATURES'] = {"warnOnLegacyHierarchySeparator":true,"buildStoriesJson":false,"storyStoreV7":true,"argTypeTargetsV7":true,"legacyDecoratorFileOrder":false};
+            window['FEATURES'] = {"argTypeTargetsV7":true,"legacyDecoratorFileOrder":false,"disallowImplicitActionsInRenderV8":true};
           
       
           
@@ -578,11 +1069,15 @@
           
       
           
-            window['DOCS_OPTIONS'] = {"defaultName":"Stories","autodocs":false};</script><script type="module">import './sb-preview/runtime.js';
+            window['DOCS_OPTIONS'] = {"defaultName":"Stories","autodocs":false};
+          
+      
+          
+            window['TAGS_OPTIONS'] = {"dev-only":{"excludeFromDocsStories":true},"docs-only":{"excludeFromSidebar":true},"test-only":{"excludeFromSidebar":true,"excludeFromDocsStories":true}};</script><script type="module">import './sb-preview/runtime.js';
 
       
-      import './runtime~main.3295bd4e.iframe.bundle.js';
+      import './runtime~main.b0e0ca88.iframe.bundle.js';
       
-      import './1060.f88a4506.iframe.bundle.js';
+      import './2607.acf54be0.iframe.bundle.js';
       
-      import './main.12ce68fe.iframe.bundle.js';</script></body></html>
+      import './main.73e5fff2.iframe.bundle.js';</script></body></html>
