@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.25.0](https://github.com/ethanWallace/gcds-components/compare/gcds-components-react-v0.24.1...gcds-components-react-v0.25.0) (2024-08-21)
+
+
+### New Features
+
+* Component rewrites (form-associated, gcds-radio-group, CSS rewrites)  ([#486](https://github.com/ethanWallace/gcds-components/issues/486)) ([ae05841](https://github.com/ethanWallace/gcds-components/commit/ae0584172bb2219f907074c48235ae8b4f8719f5))
+* lerna monorepo config ([#388](https://github.com/ethanWallace/gcds-components/issues/388)) ([424b138](https://github.com/ethanWallace/gcds-components/commit/424b138d6ebf8e3df77b2e265ff386bf1e39d7cf))
+
+
+### Bug Fixes
+
+* invalid path for types ([#471](https://github.com/ethanWallace/gcds-components/issues/471)) ([f859d43](https://github.com/ethanWallace/gcds-components/commit/f859d438e9a79184d83157b92a97f855376777ac))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @cdssnc/gcds-components bumped from ^0.24.1 to ^0.25.0
+
 ## [0.24.1](https://github.com/cds-snc/gcds-components/compare/gcds-components-react-v0.24.0...gcds-components-react-v0.24.1) (2024-08-13)
 
 
