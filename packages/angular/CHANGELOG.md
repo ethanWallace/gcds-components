@@ -1,5 +1,31 @@
 # Changelog
 
+## [0.25.0](https://github.com/ethanWallace/gcds-components/compare/gcds-components-angular-v0.24.1...gcds-components-angular-v0.25.0) (2024-08-21)
+
+
+### New Features
+
+* Add @Outputs to angular wrapper components ([#529](https://github.com/ethanWallace/gcds-components/issues/529)) ([0660093](https://github.com/ethanWallace/gcds-components/commit/0660093997b9f23ddc4745a0599df66c793a6e51))
+* add tag prop to gcds-sr-only component ([#484](https://github.com/ethanWallace/gcds-components/issues/484)) ([dfb7285](https://github.com/ethanWallace/gcds-components/commit/dfb7285a14b477f4c4f71750e8b09d3ca5c193a9))
+* Component rewrites (form-associated, gcds-radio-group, CSS rewrites)  ([#486](https://github.com/ethanWallace/gcds-components/issues/486)) ([ae05841](https://github.com/ethanWallace/gcds-components/commit/ae0584172bb2219f907074c48235ae8b4f8719f5))
+
+
+### Bug Fixes
+
+* Remove rxjs events to avoid duplicate custom events in Angular ([#566](https://github.com/ethanWallace/gcds-components/issues/566)) ([9bf46ac](https://github.com/ethanWallace/gcds-components/commit/9bf46ac49c7ffd3a1569430a0a138136e639fc9c))
+
+
+### Code Refactoring
+
+* button component (css rewrite + remove button-style prop) ([#450](https://github.com/ethanWallace/gcds-components/issues/450)) ([f7d4ce4](https://github.com/ethanWallace/gcds-components/commit/f7d4ce474b1805c41fb86eec8619bbe8440146e6))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * peerDependencies
+    * @cdssnc/gcds-components bumped from ^0.24.1 to ^0.25.0
+
 ## [0.24.1](https://github.com/cds-snc/gcds-components/compare/gcds-components-angular-v0.24.0...gcds-components-angular-v0.24.1) (2024-08-13)
 
 
