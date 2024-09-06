@@ -1,0 +1,209 @@
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var utils_exports = {};
+__export(utils_exports, {
+  NATIVE_GLOBAL_EVENTS: () => NATIVE_GLOBAL_EVENTS,
+  gcdsAttributeGenerator: () => gcdsAttributeGenerator,
+  omitEventCallbacks: () => omitEventCallbacks,
+  toPascalCase: () => toPascalCase,
+  useEventListeners: () => useEventListeners
+});
+module.exports = __toCommonJS(utils_exports);
+var import_react = require("react");
+const REACT_PROP_TO_ATTRIBUTE_NAME_MAP = {
+  className: "class",
+  classname: "class",
+  htmlFor: "for",
+  crossOrigin: "crossorigin",
+  viewBox: "viewBox"
+};
+const NATIVE_GLOBAL_EVENTS = [
+  "animationcancel",
+  "animationend",
+  "animationiteration",
+  "animationstart",
+  "beforeinput",
+  "blur",
+  "cancel",
+  "change",
+  "click",
+  "close",
+  "contextmenu",
+  "copy",
+  "cut",
+  "dblclick",
+  "drag",
+  "dragend",
+  "dragenter",
+  "dragleave",
+  "dragover",
+  "dragstart",
+  "drop",
+  "emptied",
+  "error",
+  "focus",
+  "focusin",
+  "focusout",
+  "formdata",
+  "input",
+  "invalid",
+  "keydown",
+  "keypress",
+  "keyup",
+  "mousedown",
+  "mouseenter",
+  "mouseleave",
+  "mousemove",
+  "mouseout",
+  "mouseover",
+  "mouseup",
+  "pointercancel",
+  "pointerdown",
+  "pointerenter",
+  "pointerleave",
+  "pointermove",
+  "pointerout",
+  "pointerover",
+  "pointerup",
+  "reset",
+  "resize",
+  "scroll",
+  "select",
+  "selectionchange",
+  "selectstart",
+  "slotchange",
+  "submit",
+  "toggle",
+  "touchcancel",
+  "touchend",
+  "touchmove",
+  "touchstart",
+  "transitioncancel",
+  "transitionend",
+  "transitionrun",
+  "transitionstart",
+  "wheel"
+];
+const omitEventCallbacks = (customEvents, props) => {
+  const eventCallbacks = [...customEvents, ...NATIVE_GLOBAL_EVENTS].map((event) => toCallbackName(event));
+  return Object.fromEntries(Object.entries(props).filter(([key]) => !eventCallbacks.includes(key)));
+};
+const clearAndUpper = (text) => text.replace(/-/, "").toUpperCase();
+const toPascalCase = (kebabText) => kebabText.replace(/(^\w|-\w)/g, clearAndUpper);
+const toCallbackName = (name) => `on${toPascalCase(name)}`;
+const useEventListeners = (ref, customEvents, props) => {
+  const events = [...customEvents, ...NATIVE_GLOBAL_EVENTS];
+  (0, import_react.useEffect)(() => {
+    const { current } = ref;
+    if (!current) {
+      return;
+    }
+    for (const event of events) {
+      const callback = props[toCallbackName(event)];
+      if (callback) {
+        current.addEventListener(event, props[toCallbackName(event)]);
+      }
+    }
+    return () => {
+      for (const event of events) {
+        const callback = props[toCallbackName(event)];
+        if (callback) {
+          current.removeEventListener(event, props[toCallbackName(event)]);
+        }
+      }
+    };
+  }, [ref]);
+};
+const gcdsAttributeGenerator = (tagName, props) => {
+  if (props["class-name"]) {
+    props["class"] = props["class-name"];
+    delete props["class-name"];
+  }
+  switch (tagName) {
+    case "gcds-breadcrumbs-item": {
+      props["role"] = props["role"] ? props["role"] : "listitem";
+      props["class"] = props["class"] ? `${props["class"]} gcds-breadcrumbs-item` : "gcds-breadcrumbs-item";
+      return props;
+    }
+    case "gcds-card": {
+      props["type"] = props["type"] ? props["type"] : "link";
+      return props;
+    }
+    case "gcds-error-message": {
+      props["class"] = props["class"] ? `${props["class"]} gcds-error-message-wrapper` : "gcds-error-message-wrapper";
+      props["id"] = props["id"] ? `${props["id"]} error-message-${props["message-id"]}` : `error-message-${props["message-id"]}`;
+      return props;
+    }
+    case "gcds-footer": {
+      props["role"] = props["role"] ? props["role"] : "contentInfo";
+      props["aria-label"] = "Footer";
+      return props;
+    }
+    case "gcds-grid-col": {
+      let tablet = 6;
+      let desktop = 12;
+      if (props["tablet"] && props["tablet"] <= 6 && props["tablet"] > 0) {
+        tablet = props["tablet"];
+      }
+      if (props["desktop"] && props["desktop"] <= 12 && props["desktop"] > 0) {
+        desktop = props["desktop"];
+      } else if (props["tablet"]) {
+        desktop = tablet * 2;
+      }
+      const style = {
+        "--gcds-grid-col-tablet": tablet,
+        "--gcds-grid-col-desktop": desktop
+      };
+      props["style"] = Object.assign(Object.assign({}, props["style"]), style);
+      return props;
+    }
+    case "gcds-header": {
+      props["role"] = props["role"] ? props["role"] : "banner";
+      return props;
+    }
+    case "gcds-nav-link": {
+      props["role"] = props["role"] ? props["role"] : "listitem";
+      return props;
+    }
+    case "gcds-nav-group": {
+      props["role"] = props["role"] ? props["role"] : "listitem";
+      return props;
+    }
+    case "gcds-pagination": {
+      props["role"] = props["role"] ? props["role"] : "navigation";
+      props["aria-label"] = props["label"];
+      return props;
+    }
+    case "gcds-text": {
+      const defaultClass = props["display"] ? `d-${props["display"]}` : "";
+      if (defaultClass != "") {
+        props["class"] = props["class"] ? `${props["class"]} ${defaultClass}` : defaultClass;
+      } else {
+        props["class"] = props["class"] ? `${props["class"]}${defaultClass}` : defaultClass;
+      }
+      return props;
+    }
+    case "gcds-signature": {
+      props["variant"] = props["variant"] ? props["variant"] : "colour";
+      return props;
+    }
+    default: {
+      return props;
+    }
+  }
+};
