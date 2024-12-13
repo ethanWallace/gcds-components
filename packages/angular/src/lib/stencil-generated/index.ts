@@ -2,6 +2,7 @@
 import * as d from './components';
 
 export const DIRECTIVES = [
+  d.ElementDisplay,
   d.GcdsAlert,
   d.GcdsBreadcrumbs,
   d.GcdsBreadcrumbsItem,

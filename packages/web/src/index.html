@@ -104,6 +104,103 @@
     <gcds-container size="xl" main-container centered tag="main">
       <gcds-heading tag="h1">GC Design System</gcds-heading>
 
+
+
+      <element-display
+      >
+        <gcds-header></gcds-header>
+      </element-display>
+
+      <element-display
+        class="mt-300"
+        attrs='[
+          {
+            "name": "button-id",
+            "control": "text",
+            "type": "string"
+          },
+          {
+            "name": "button-role",
+            "control": "select",
+            "type": "string",
+            "options": "[\"primary\", \"secondary\", \"danger\"]",
+            "defaultValue": "primary"
+          },
+          {
+            "name": "nope",
+            "control": "none"
+          }
+        ]'
+        slots='[
+          {
+            "name": "default",
+            "description": "The default slot allows inputting the button label."
+          }
+        ]'
+        events='[
+          {
+            "name": "gcdsBlur",
+            "description": "Custom event that fires when the element loses focus",
+            "details": "-"
+          },
+          {
+            "name": "gcdsFocus",
+            "description": "Custom event that fires when the element gains focus",
+            "details": "-"
+          }
+        ]'
+      >
+        <gcds-button button-role="danger">Primary</gcds-button>
+      </element-display>
+
+      <element-display
+        class="mt-300"
+        attrs='[
+          {
+            "name": "label",
+            "control": "text",
+            "type": "string"
+          },
+          {
+            "name": "input-id",
+            "control": "text",
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "control": "select",
+            "type": "string",
+            "options": "[\"text\", \"email\", \"number\", \"url\", \"search\", \"password\"]",
+            "defaultValue": "text"
+          },
+          {
+            "name": "required",
+            "control": "select",
+            "type": "boolean",
+            "options": "[\"true\", \"false\"]",
+            "defaultValue": "false"
+          }
+        ]'
+        events='[
+          {
+            "name": "gcdsBlur",
+            "description": "Custom event that fires when the element loses focus",
+            "details": "-"
+          },
+          {
+            "name": "gcdsFocus",
+            "description": "Custom event that fires when the element gains focus",
+            "details": "-"
+          }
+        ]'
+      >
+        <gcds-input
+          input-id="form-name"
+          label="Name"
+          hint="Please enter your full name."
+        ></gcds-input>
+      </element-display>
+
       <hr class="my-550" />
 
       <!-- ------------- Alerts ------------- -->

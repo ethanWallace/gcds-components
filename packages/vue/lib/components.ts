@@ -8,6 +8,13 @@ import type { JSX } from '@cdssnc/gcds-components';
 
 
 
+export const ElementDisplay = /*@__PURE__*/ defineContainer<JSX.ElementDisplay>('element-display', undefined, [
+  'attrs',
+  'slots',
+  'events'
+]);
+
+
 export const GcdsAlert = /*@__PURE__*/ defineContainer<JSX.GcdsAlert>('gcds-alert', undefined, [
   'alertRole',
   'container',

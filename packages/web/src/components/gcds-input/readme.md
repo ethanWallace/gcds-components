@@ -54,6 +54,7 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [element-display](../element-display)
  - [gcds-date-input](../gcds-date-input)
 
 ### Depends on
@@ -71,6 +72,7 @@ graph TD;
   gcds-hint --> gcds-text
   gcds-error-message --> gcds-text
   gcds-error-message --> gcds-icon
+  element-display --> gcds-input
   gcds-date-input --> gcds-input
   style gcds-input fill:#f9f,stroke:#333,stroke-width:4px
 ```

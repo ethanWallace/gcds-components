@@ -1,0 +1,38 @@
+@layer default;
+
+@layer default {
+  :host {
+    display: block;
+
+    .display-frame {
+      padding: var(--gcds-spacing-350) var(--gcds-spacing-250);
+      border: var(--gcds-border-width-md) solid black;
+    }
+
+    table {
+      border: var(--gcds-border-width-md) solid black;
+      width: 100%;
+
+      th {
+        padding: var(--gcds-spacing-100) var(--gcds-spacing-50);
+        border-bottom: var(--gcds-border-width-sm) solid black;
+      }
+
+      th, td {
+        text-align: left;
+      }
+
+      &.attributes {
+        th,td {
+          width: 25%;
+        }
+      }
+      
+    }
+
+    slot {
+      display: initial;
+    }
+  }
+}
+

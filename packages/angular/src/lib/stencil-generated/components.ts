@@ -8,6 +8,28 @@ import { Components } from '@cdssnc/gcds-components';
 
 
 @ProxyCmp({
+  inputs: ['attrs', 'events', 'slots']
+})
+@Component({
+  selector: 'element-display',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['attrs', 'events', 'slots'],
+})
+export class ElementDisplay {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface ElementDisplay extends Components.ElementDisplay {}
+
+
+@ProxyCmp({
   inputs: ['alertRole', 'container', 'heading', 'hideCloseBtn', 'hideRoleIcon', 'isFixed'],
   outputs: ['gcdsDismiss']
 })

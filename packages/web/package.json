@@ -38,7 +38,10 @@
     "@storybook/addon-a11y": "^8.0.9",
     "@storybook/addons": "^7.6.17",
     "@storybook/test": "^8.0.9",
-    "@storybook/theming": "^8.0.9"
+    "@storybook/theming": "^8.0.9",
+    "axe-core": "^4.10.2",
+    "jsdom": "^25.0.1",
+    "prismjs": "^1.29.0"
   },
   "devDependencies": {
     "@axe-core/puppeteer": "^4.7.3",
@@ -75,7 +78,7 @@
     "jest-cli": "^27.4.5",
     "lit-html": "^2.6.1",
     "postcss-nested": "^6.0.0",
-    "prettier": "^3.0.0",
+    "prettier": "^3.4.2",
     "puppeteer": "^21.0.0",
     "react-syntax-highlighter": "^15.5.0",
     "sass": "^1.43.5",

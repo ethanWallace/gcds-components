@@ -5,15 +5,22 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { AttributesType, EventType, SlotType } from "./components/element-display/element-display";
 import { Validator, ValidatorEntry } from "./validators";
 import { SpacingValues } from "./utils/types/spacing";
 import { ContentValues } from "./components/gcds-grid/gcds-grid";
 import { RadioObject } from "./components/gcds-radio-group/gcds-radio-group";
+export { AttributesType, EventType, SlotType } from "./components/element-display/element-display";
 export { Validator, ValidatorEntry } from "./validators";
 export { SpacingValues } from "./utils/types/spacing";
 export { ContentValues } from "./components/gcds-grid/gcds-grid";
 export { RadioObject } from "./components/gcds-radio-group/gcds-radio-group";
 export namespace Components {
+    interface ElementDisplay {
+        "attrs"?: string | Array<AttributesType>;
+        "events"?: string | Array<EventType>;
+        "slots"?: string | Array<SlotType>;
+    }
     interface GcdsAlert {
         /**
           * Defines alert role.
@@ -1168,6 +1175,12 @@ export interface GcdsTextareaCustomEvent<T> extends CustomEvent<T> {
     target: HTMLGcdsTextareaElement;
 }
 declare global {
+    interface HTMLElementDisplayElement extends Components.ElementDisplay, HTMLStencilElement {
+    }
+    var HTMLElementDisplayElement: {
+        prototype: HTMLElementDisplayElement;
+        new (): HTMLElementDisplayElement;
+    };
     interface HTMLGcdsAlertElementEventMap {
         "gcdsDismiss": void;
     }
@@ -1662,6 +1675,7 @@ declare global {
         new (): HTMLGcdsVerifyBannerElement;
     };
     interface HTMLElementTagNameMap {
+        "element-display": HTMLElementDisplayElement;
         "gcds-alert": HTMLGcdsAlertElement;
         "gcds-breadcrumbs": HTMLGcdsBreadcrumbsElement;
         "gcds-breadcrumbs-item": HTMLGcdsBreadcrumbsItemElement;
@@ -1707,6 +1721,11 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface ElementDisplay {
+        "attrs"?: string | Array<AttributesType>;
+        "events"?: string | Array<EventType>;
+        "slots"?: string | Array<SlotType>;
+    }
     interface GcdsAlert {
         /**
           * Defines alert role.
@@ -3012,6 +3031,7 @@ declare namespace LocalJSX {
         "isFixed"?: boolean;
     }
     interface IntrinsicElements {
+        "element-display": ElementDisplay;
         "gcds-alert": GcdsAlert;
         "gcds-breadcrumbs": GcdsBreadcrumbs;
         "gcds-breadcrumbs-item": GcdsBreadcrumbsItem;
@@ -3060,6 +3080,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "element-display": LocalJSX.ElementDisplay & JSXBase.HTMLAttributes<HTMLElementDisplayElement>;
             "gcds-alert": LocalJSX.GcdsAlert & JSXBase.HTMLAttributes<HTMLGcdsAlertElement>;
             "gcds-breadcrumbs": LocalJSX.GcdsBreadcrumbs & JSXBase.HTMLAttributes<HTMLGcdsBreadcrumbsElement>;
             "gcds-breadcrumbs-item": LocalJSX.GcdsBreadcrumbsItem & JSXBase.HTMLAttributes<HTMLGcdsBreadcrumbsItemElement>;
