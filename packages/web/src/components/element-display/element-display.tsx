@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, Watch, Element } from '@stencil/core';
+import { Component, Host, h, Prop, Watch, Element, State } from '@stencil/core';
 import Prism from 'prismjs';
 import prettier from 'prettier';
 import prettierPluginHTML from 'prettier/plugins/html';
@@ -70,6 +70,8 @@ export class ElementDisplay {
     }
   }
 
+  @State() display: string = 'attr';
+
   /////// Attribute changes
 
   private handleAttrInput = e => {
@@ -100,10 +102,20 @@ export class ElementDisplay {
   //////// Code preview
 
   private convertToReact(str) {
-    return str
-      .replace(/-([a-z])/g, (_, letter) => letter.toUpperCase())
-      .replace('<g', '<G')
-      .replace('</g', '</G');
+    let react = str.replace(
+      /"([^"]*)"|(\b[a-z]+(?:-[a-z]+)+\b)/g,
+      (match, quoted, kebab) => {
+        if (quoted) return `"${quoted}"`;
+
+        if (kebab) {
+          return kebab.replace(/-([a-z])/g, (_, char) => char.toUpperCase());
+        }
+
+        return match;
+      },
+    );
+
+    return react.replace('<g', '<G').replace('</g', '</G');
   }
 
   private removeUnwantedAttributes(html) {
