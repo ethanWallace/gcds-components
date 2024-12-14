@@ -9,6 +9,29 @@
       border: var(--gcds-border-width-md) solid black;
     }
 
+    .hidden {
+      display: none;
+    }
+
+    [role="tablist"] {
+      [role="tab"]::part(button) {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        margin: 0 var(--gcds-spacing-50);
+      }
+    }
+
+    .code-frame {
+      border: var(--gcds-border-width-md) solid black;
+      width: 100%;
+
+      .code-actions {
+        border-top: var(--gcds-border-width-md) solid black;
+        border-bottom: var(--gcds-border-width-md) solid black;
+        padding: var(--gcds-spacing-100);
+      }
+    }
+
     table {
       border: var(--gcds-border-width-md) solid black;
       width: 100%;
