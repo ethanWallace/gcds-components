@@ -19,6 +19,11 @@
         border-bottom-left-radius: 0;
         margin: 0 var(--gcds-spacing-50);
       }
+
+      [aria-selected="true"]::part(button) {
+        background-color: var(--gcds-bg-primary);
+        color: white;
+      }
     }
 
     .code-frame {
@@ -30,6 +35,16 @@
         border-bottom: var(--gcds-border-width-md) solid black;
         padding: var(--gcds-spacing-100);
       }
+    }
+
+    #test-container {
+      clip-path: inset(100%);
+      clip: rect(1px, 1px, 1px, 1px);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
     }
 
     table {

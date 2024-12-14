@@ -1,7 +1,18 @@
-import { Component, Host, h, Prop, Watch, Element, State, Fragment } from '@stencil/core';
+import {
+  Component,
+  Host,
+  h,
+  Prop,
+  Watch,
+  Element,
+  State,
+  Fragment,
+} from '@stencil/core';
 import Prism from 'prismjs';
 import prettier from 'prettier';
 import prettierPluginHTML from 'prettier/plugins/html';
+import axe from 'axe-core';
+import axeLocaleFr from 'axe-core/locales/fr.json';
 
 export type AttributesType = {
   name: string;
@@ -38,7 +49,7 @@ export class ElementDisplay {
   private copyHTMLButton?: HTMLElement;
   private copyReactButton?: HTMLElement;
 
-  private slotHistory = {};
+  private slotHistory: object = {};
 
   private attributeObject;
   private slotObject;
@@ -74,8 +85,11 @@ export class ElementDisplay {
     }
   }
 
-  @State() display: string = 'attr';
+  @Prop() test?: boolean = false;
+
+  @State() display: string = 'attrs';
   @State() showCode: boolean = true;
+  @State() axeResults: axe.AxeResults | null = null;
 
   private setDisplay(str) {
     this.display = str;
@@ -99,10 +113,9 @@ export class ElementDisplay {
       );
     }
 
-    this.displayElement.innerHTML = this.removeUnwantedAttributes(this.displayElement.innerHTML).replace(
-      this.slotHistory[e.target.name],
-      e.target.value
-    );
+    this.displayElement.innerHTML = this.removeUnwantedAttributes(
+      this.displayElement.innerHTML,
+    ).replace(this.slotHistory[e.target.name], e.target.value);
 
     this.slotHistory[e.target.name] = e.target.value;
 
@@ -116,7 +129,7 @@ export class ElementDisplay {
 
     if (this.displayElement.querySelector(`[slot="${name}"]`)) {
       this.slotHistory[name] = this.removeUnwantedAttributes(
-        this.displayElement.querySelector(`[slot="${name}"]`)?.outerHTML
+        this.displayElement.querySelector(`[slot="${name}"]`)?.outerHTML,
       );
       return this.slotHistory[name];
     }
@@ -185,6 +198,74 @@ export class ElementDisplay {
     navigator.clipboard.writeText(code);
   }
 
+  ////// Accesibility
+
+  private async runA11yTest() {
+    try {
+      let container = this.el.shadowRoot.getElementById('test-container');
+
+      container.innerHTML = this.displayElement.outerHTML;
+  
+      setTimeout(async () => {
+        // @ ts-expect-error
+        // axe.configure({ locale: axeLocaleFr });
+        this.axeResults = await axe.run(container);
+        console.log("Accessibility Violations:", this.axeResults.violations);
+
+        container.innerHTML = '';
+      }, 2000);
+
+    } catch (error) {
+      console.error("Error running accessibility tests:", error);
+      return null;
+    }
+  }
+
+  renderAxeResultsTable() {
+    if (this.axeResults && this.axeResults.violations.length > 0) {
+      return (
+        <table>
+          <thead>
+            <tr>
+              <th>Violation ID</th>
+              <th>Description</th>
+              <th>Affected Element(s)</th>
+              <th>Failure Summary</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.axeResults.violations.map((violation) => (
+              <tr key={violation.id}>
+                <td>{violation.id}</td>
+                <td>{violation.description}</td>
+                <td>
+                  <ul>
+                    {violation.nodes.map((node, index) => (
+                      <li key={index}>
+                        <code>{node.html}</code>
+                      </li>
+                    ))}
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    {violation.nodes.map((node, index) => (
+                      <li key={index}>{node.failureSummary}</li>
+                    ))}
+                  </ul>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      );
+    } else if (this.axeResults) {
+      return <p>No accessibility issues found!</p>;
+    }
+
+    return null;
+  }
+
   async componentWillLoad() {
     this.validateAttrs();
     this.validateSlots();
@@ -207,27 +288,37 @@ export class ElementDisplay {
         <div class="code-frame">
           <div class="code-actions">
             <gcds-button
-              button-role='secondary'
-              onClick={() => { this.showCode = !this.showCode }}
-              >
-                {this.showCode ? 'Hide code' : 'Show code'}
-              </gcds-button>
+              button-role="secondary"
+              onClick={() => {
+                this.showCode = !this.showCode;
+              }}
+            >
+              {this.showCode ? 'Hide code' : 'Show code'}
+            </gcds-button>
 
             {this.showCode && (
               <>
                 <gcds-button
-                  button-role='secondary'
-                  name='html'
-                  onClick={(e) => { this.copyCode(e) }}
-                  ref={element => (this.copyHTMLButton = element as HTMLElement)}
+                  button-role="secondary"
+                  name="html"
+                  onClick={e => {
+                    this.copyCode(e);
+                  }}
+                  ref={element =>
+                    (this.copyHTMLButton = element as HTMLElement)
+                  }
                 >
                   Copy HTML
                 </gcds-button>
                 <gcds-button
-                  button-role='secondary'
-                  name='react'
-                  onClick={(e) => { this.copyCode(e) }}
-                  ref={element => (this.copyReactButton = element as HTMLElement)}
+                  button-role="secondary"
+                  name="react"
+                  onClick={e => {
+                    this.copyCode(e);
+                  }}
+                  ref={element =>
+                    (this.copyReactButton = element as HTMLElement)
+                  }
                 >
                   Copy React
                 </gcds-button>
@@ -244,7 +335,9 @@ export class ElementDisplay {
             <pre class="language-html">
               <code
                 id="react"
-                ref={element => (this.reactCodePreview = element as HTMLElement)}
+                ref={element =>
+                  (this.reactCodePreview = element as HTMLElement)
+                }
               ></code>
             </pre>
           </div>
@@ -256,7 +349,7 @@ export class ElementDisplay {
               id="attributes"
               button-role="secondary"
               role="tab"
-              onClick={() => this.setDisplay('attr')}
+              onClick={() => this.setDisplay('attrs')}
               aria-selected={this.display === 'attrs' ? 'true' : 'false'}
             >
               Attributes & properties
@@ -283,13 +376,24 @@ export class ElementDisplay {
                 Events
               </gcds-button>
             )}
+            {this.test && (
+              <gcds-button
+                id="a11y"
+                button-role="secondary"
+                role="tab"
+                onClick={() => this.setDisplay('a11y')}
+                aria-selected={this.display === 'a11y' ? 'true' : 'false'}
+              >
+                Accessibility
+              </gcds-button>
+            )}
           </div>
 
           <div
             role="tabpanel"
             aria-labbeledby="attributes"
             tabindex="0"
-            class={this.display != 'attr' && 'hidden'}
+            class={this.display != 'attrs' && 'hidden'}
           >
             <table class="attributes">
               <tr>
@@ -411,7 +515,7 @@ export class ElementDisplay {
 
                 {this.eventObject.map(event => {
                   return (
-                    <tr>
+                    <tr class={event.name}>
                       <td>{event.name}</td>
                       <td>{event.description}</td>
                       <td>{event.details}</td>
@@ -419,6 +523,28 @@ export class ElementDisplay {
                   );
                 })}
               </table>
+            </div>
+          )}
+
+          {this.test && (
+            <div
+              role="tabpanel"
+              aria-labbeledby="a11y"
+              tabindex="0"
+              class={this.display != 'a11y' && 'hidden'}
+            >
+              <gcds-button
+                button-role="secondary"
+                onClick={async () => {
+                  await this.runA11yTest();
+                }}
+              >
+                Run accessibility test
+              </gcds-button>
+
+              <div id="test-container" class=""></div>
+
+              {this.renderAxeResultsTable()}
             </div>
           )}
         </div>

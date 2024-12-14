@@ -40,7 +40,6 @@
     "@storybook/test": "^8.0.9",
     "@storybook/theming": "^8.0.9",
     "axe-core": "^4.10.2",
-    "jsdom": "^25.0.1",
     "prismjs": "^1.29.0"
   },
   "devDependencies": {
