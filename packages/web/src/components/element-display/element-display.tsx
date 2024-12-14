@@ -38,6 +38,8 @@ export class ElementDisplay {
   private copyHTMLButton?: HTMLElement;
   private copyReactButton?: HTMLElement;
 
+  private slotHistory = {};
+
   private attributeObject;
   private slotObject;
   private eventObject;
@@ -97,6 +99,13 @@ export class ElementDisplay {
       );
     }
 
+    this.displayElement.innerHTML = this.removeUnwantedAttributes(this.displayElement.innerHTML).replace(
+      this.slotHistory[e.target.name],
+      e.target.value
+    );
+
+    this.slotHistory[e.target.name] = e.target.value;
+
     this.formatCodePreview();
   };
 
@@ -104,6 +113,15 @@ export class ElementDisplay {
     if (name === 'default') {
       return this.displayElement.innerHTML;
     }
+
+    if (this.displayElement.querySelector(`[slot="${name}"]`)) {
+      this.slotHistory[name] = this.removeUnwantedAttributes(
+        this.displayElement.querySelector(`[slot="${name}"]`)?.outerHTML
+      );
+      return this.slotHistory[name];
+    }
+
+    return '';
   }
 
   //////// Code preview
@@ -122,7 +140,7 @@ export class ElementDisplay {
       },
     );
 
-    return react.replace('<g', '<G').replace('</g', '</G');
+    return react.replace(/<g/g, '<G').replace(/<\/g/g, '</G');
   }
 
   private removeUnwantedAttributes(html) {
@@ -344,7 +362,7 @@ export class ElementDisplay {
             >
               <table class="slots">
                 <caption>
-                  Slots allow passing text or patterns to the component.
+                  Slots allow passing text or HTML elements to the component.
                 </caption>
                 <tr>
                   <th>Slot name</th>
@@ -361,7 +379,6 @@ export class ElementDisplay {
                       name={slot.name}
                       hideLabel
                       value={controlValue}
-                      onInput={e => this.handleSlotInput(e)}
                       onChange={e => this.handleSlotInput(e)}
                     ></gcds-textarea>
                   );

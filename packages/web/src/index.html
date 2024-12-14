@@ -69,11 +69,30 @@
     <gcds-container size="xl" main-container centered tag="main">
       <gcds-heading tag="h1">GC Design System</gcds-heading>
 
-
-
       <element-display
+        slots='[
+          {
+            "name": "menu",
+            "description": "The slot to place the main menu of the site"
+          },
+          {
+            "name": "breadcrumb",
+            "description": "The slot to place the breadcrumbs of the site"
+          },
+          {
+            "name": "search",
+            "description": "The slot to place the search of the site"
+          }
+        ]'
       >
-        <gcds-header></gcds-header>
+        <gcds-header>
+          <gcds-search slot="search"></gcds-search>
+          <gcds-topic-menu slot="menu"></gcds-topic-menu>
+          <gcds-breadcrumbs slot="breadcrumb">
+            <gcds-breadcrumbs-item href="#">Design System</gcds-breadcrumbs-item>
+            <gcds-breadcrumbs-item href="#">Components</gcds-breadcrumbs-item>
+          </gcds-breadcrumbs>
+        </gcds-header>
       </element-display>
 
       <element-display
