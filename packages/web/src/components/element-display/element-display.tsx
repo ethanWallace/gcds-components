@@ -14,6 +14,8 @@ import prettierPluginHTML from 'prettier/plugins/html';
 import axe from 'axe-core';
 import axeLocaleFr from 'axe-core/locales/fr.json';
 
+import { assignLanguage } from '../../utils/utils';
+
 export type AttributesType = {
   name: string;
   control: 'select' | 'text' | 'none';
@@ -85,11 +87,12 @@ export class ElementDisplay {
     }
   }
 
-  @Prop() test?: boolean = false;
+  @Prop() accessibility?: boolean = false;
 
   @State() display: string = 'attrs';
   @State() showCode: boolean = true;
   @State() axeResults: axe.AxeResults | null = null;
+  @State() lang: string = 'en';
 
   private setDisplay(str) {
     this.display = str;
@@ -205,18 +208,20 @@ export class ElementDisplay {
       let container = this.el.shadowRoot.getElementById('test-container');
 
       container.innerHTML = this.displayElement.outerHTML;
-  
+
       setTimeout(async () => {
-        // @ ts-expect-error
-        // axe.configure({ locale: axeLocaleFr });
+        if (this.lang === 'fr') {
+          // @ts-expect-error
+          axe.configure({ locale: axeLocaleFr });
+        }
+
         this.axeResults = await axe.run(container);
-        console.log("Accessibility Violations:", this.axeResults.violations);
+        console.log('Accessibility Violations:', this.axeResults.violations);
 
         container.innerHTML = '';
       }, 2000);
-
     } catch (error) {
-      console.error("Error running accessibility tests:", error);
+      console.error('Error running accessibility tests:', error);
       return null;
     }
   }
@@ -234,7 +239,7 @@ export class ElementDisplay {
             </tr>
           </thead>
           <tbody>
-            {this.axeResults.violations.map((violation) => (
+            {this.axeResults.violations.map(violation => (
               <tr key={violation.id}>
                 <td>{violation.id}</td>
                 <td>{violation.description}</td>
@@ -267,6 +272,9 @@ export class ElementDisplay {
   }
 
   async componentWillLoad() {
+    // Define lang attribute
+    this.lang = assignLanguage(this.el);
+
     this.validateAttrs();
     this.validateSlots();
     this.validateEvents();
@@ -376,7 +384,7 @@ export class ElementDisplay {
                 Events
               </gcds-button>
             )}
-            {this.test && (
+            {this.accessibility && (
               <gcds-button
                 id="a11y"
                 button-role="secondary"
@@ -526,7 +534,7 @@ export class ElementDisplay {
             </div>
           )}
 
-          {this.test && (
+          {this.accessibility && (
             <div
               role="tabpanel"
               aria-labbeledby="a11y"

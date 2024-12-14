@@ -133,12 +133,13 @@
             "details": "-"
           }
         ]'
+        accessibility
       >
         <gcds-button button-role="danger">Primary</gcds-button>
       </element-display>
 
       <element-display
-        class="mt-300"
+        class="mt-300 mb-700"
         attrs='[
           {
             "name": "label",
@@ -175,8 +176,19 @@
             "name": "gcdsFocus",
             "description": "Custom event that fires when the element gains focus",
             "details": "-"
+          },
+          {
+            "name": "gcdsInput",
+            "description": "Custom event that fires when the element receives input",
+            "details": "-"
+          },
+          {
+            "name": "gcdsChange",
+            "description": "Custom event that fires when the element changes",
+            "details": "-"
           }
         ]'
+        accessibility
       >
         <gcds-input
           input-id="form-name"
