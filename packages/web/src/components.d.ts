@@ -17,6 +17,7 @@ export { ContentValues } from "./components/gcds-grid/gcds-grid";
 export { RadioObject } from "./components/gcds-radio-group/gcds-radio-group";
 export namespace Components {
     interface ElementDisplay {
+        "accessibility"?: boolean;
         "attrs"?: string | Array<AttributesType>;
         "events"?: string | Array<EventType>;
         "slots"?: string | Array<SlotType>;
@@ -1722,6 +1723,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface ElementDisplay {
+        "accessibility"?: boolean;
         "attrs"?: string | Array<AttributesType>;
         "events"?: string | Array<EventType>;
         "slots"?: string | Array<SlotType>;

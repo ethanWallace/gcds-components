@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
     />
-    <title>POS element-display</title>
+    <title>Proof of concept - element-display</title>
 
     <!-- Utility framework -->
     <link
@@ -67,33 +67,11 @@
   <body style="margin: 0">
 
     <gcds-container size="xl" main-container centered tag="main">
-      <gcds-heading tag="h1">GC Design System</gcds-heading>
+      <gcds-heading tag="h1">Proof of concept - element-display</gcds-heading>
 
-      <element-display
-        slots='[
-          {
-            "name": "menu",
-            "description": "The slot to place the main menu of the site"
-          },
-          {
-            "name": "breadcrumb",
-            "description": "The slot to place the breadcrumbs of the site"
-          },
-          {
-            "name": "search",
-            "description": "The slot to place the search of the site"
-          }
-        ]'
-      >
-        <gcds-header>
-          <gcds-search slot="search"></gcds-search>
-          <gcds-topic-menu slot="menu"></gcds-topic-menu>
-          <gcds-breadcrumbs slot="breadcrumb">
-            <gcds-breadcrumbs-item href="#">Design System</gcds-breadcrumbs-item>
-            <gcds-breadcrumbs-item href="#">Components</gcds-breadcrumbs-item>
-          </gcds-breadcrumbs>
-        </gcds-header>
-      </element-display>
+      <gcds-text>I want to try and replace our storybook iframe on the documentation site mainly so we truly have an accessible and bilingual experience.</gcds-text>
+
+      <gcds-heading tag="h2">Button</gcds-heading>
 
       <element-display
         class="mt-300"
@@ -134,9 +112,12 @@
           }
         ]'
         accessibility
+        lang="fr"
       >
         <gcds-button button-role="danger">Primary</gcds-button>
       </element-display>
+
+      <gcds-heading tag="h2">Input</gcds-heading>
 
       <element-display
         class="mt-300 mb-700"
@@ -196,6 +177,92 @@
           hint="Please enter your full name."
         ></gcds-input>
       </element-display>
+
+
+      <gcds-heading tag="h2">Header</gcds-heading>
+
+      <element-display
+        id="header-display"
+        class="mb-400"
+        accessibility
+      >
+        <gcds-header>
+          <gcds-search slot="search"></gcds-search>
+          <gcds-topic-menu slot="menu"></gcds-topic-menu>
+          <gcds-breadcrumbs slot="breadcrumb">
+            <gcds-breadcrumbs-item href="#">Design System</gcds-breadcrumbs-item>
+            <gcds-breadcrumbs-item href="#">Components</gcds-breadcrumbs-item>
+          </gcds-breadcrumbs>
+        </gcds-header>
+      </element-display>
+
+      <script>
+        const headerDisplay = document.getElementById('header-display');
+
+        const headerAttrs = [
+          {
+            name: 'lang-href',
+            control: 'text',
+            type: 'string',
+          },
+          {
+            name: 'skip-to-href',
+            control: 'text',
+            type: 'string',
+          },
+          {
+            name: "signature-has-link",
+            control: "select",
+            type: "boolean",
+            options: '["true", "false"]',
+            defaultValue: "true"
+          },
+          {
+            name: "signature-variant",
+            control: "select",
+            type: "boolean",
+            options: '["colour", "white"]',
+            defaultValue: "colour"
+          },
+          {
+            name: "lang",
+            type: 'string',
+            control: 'select',
+            options: '["en", "fr"]',
+            defaultValue: 'en',
+          },
+        ];
+
+        const headerSlots = [
+          {
+            name: "menu",
+            description: "Use this slot to add a menu to the header.",
+          },
+          {
+            name: "breadcrumb",
+            description: "Use this slot to add breadcrumbs to the header.",
+          },
+          {
+            name: "search",
+            description: "Use this slot to add a search to the header.",
+          },
+          {
+            name: "toggle",
+            description: "Use this slot to add a different language toggle to the header.",
+          },
+          {
+            name: "banner",
+            description: "Use this slot to add a banner to the header.",
+          },
+          {
+            name: 'skip-to-nav',
+            description: "Use this slot to add a different skip-to-nav link to the header.",
+          },
+        ]
+
+        headerDisplay.attrs = headerAttrs;
+        headerDisplay.slots = headerSlots;
+      </script>
 
     </gcds-container>
   </body>

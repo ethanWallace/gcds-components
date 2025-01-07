@@ -8,14 +8,14 @@ import { Components } from '@cdssnc/gcds-components';
 
 
 @ProxyCmp({
-  inputs: ['attrs', 'events', 'slots']
+  inputs: ['accessibility', 'attrs', 'events', 'slots']
 })
 @Component({
   selector: 'element-display',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['attrs', 'events', 'slots'],
+  inputs: ['accessibility', 'attrs', 'events', 'slots'],
 })
 export class ElementDisplay {
   protected el: HTMLElement;

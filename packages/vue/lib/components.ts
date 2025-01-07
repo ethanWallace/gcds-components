@@ -11,7 +11,8 @@ import type { JSX } from '@cdssnc/gcds-components';
 export const ElementDisplay = /*@__PURE__*/ defineContainer<JSX.ElementDisplay>('element-display', undefined, [
   'attrs',
   'slots',
-  'events'
+  'events',
+  'accessibility'
 ]);
 
 

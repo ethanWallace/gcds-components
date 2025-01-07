@@ -57,6 +57,9 @@ export class ElementDisplay {
   private slotObject;
   private eventObject;
 
+  /*
+   * Array to format attributes table
+   */
   @Prop() attrs?: string | Array<AttributesType>;
   @Watch('attrs')
   validateAttrs() {
@@ -67,6 +70,9 @@ export class ElementDisplay {
     }
   }
 
+  /*
+   * Array to format slots table
+   */
   @Prop() slots?: string | Array<SlotType>;
   @Watch('slots')
   validateSlots() {
@@ -77,6 +83,9 @@ export class ElementDisplay {
     }
   }
 
+  /*
+   * Array to events attributes table
+   */
   @Prop() events?: string | Array<EventType>;
   @Watch('events')
   validateEvents() {
@@ -87,6 +96,9 @@ export class ElementDisplay {
     }
   }
 
+  /*
+   * Enable accessibility tests using axe-core
+   */
   @Prop() accessibility?: boolean = false;
 
   @State() display: string = 'attrs';
@@ -216,6 +228,7 @@ export class ElementDisplay {
         }
 
         this.axeResults = await axe.run(container);
+        console.log(this.axeResults)
         console.log('Accessibility Violations:', this.axeResults.violations);
 
         container.innerHTML = '';
@@ -265,7 +278,24 @@ export class ElementDisplay {
         </table>
       );
     } else if (this.axeResults) {
-      return <p>No accessibility issues found!</p>;
+      return (
+        <table>
+          <thead>
+            <tr>
+              <th>Test</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.axeResults.passes.map(pass => (
+              <tr key={pass.id}>
+                <td>{pass.id}</td>
+                <td>{pass.description}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      );
     }
 
     return null;
@@ -351,7 +381,7 @@ export class ElementDisplay {
           </div>
         </div>
 
-        <div>
+        <div id="tabs">
           <div role="tablist">
             <gcds-button
               id="attributes"
@@ -399,7 +429,6 @@ export class ElementDisplay {
 
           <div
             role="tabpanel"
-            aria-labbeledby="attributes"
             tabindex="0"
             class={this.display != 'attrs' && 'hidden'}
           >
@@ -468,7 +497,6 @@ export class ElementDisplay {
           {this.slotObject && (
             <div
               role="tabpanel"
-              aria-labbeledby="slots"
               tabindex="0"
               class={this.display != 'slots' && 'hidden'}
             >
@@ -509,7 +537,6 @@ export class ElementDisplay {
           {this.eventObject && (
             <div
               role="tabpanel"
-              aria-labbeledby="events"
               tabindex="0"
               class={this.display != 'events' && 'hidden'}
             >
@@ -537,9 +564,8 @@ export class ElementDisplay {
           {this.accessibility && (
             <div
               role="tabpanel"
-              aria-labbeledby="a11y"
               tabindex="0"
-              class={this.display != 'a11y' && 'hidden'}
+              class={`tabs--accessibility${this.display != 'a11y' ? ' hidden' : ''}`}
             >
               <gcds-button
                 button-role="secondary"
