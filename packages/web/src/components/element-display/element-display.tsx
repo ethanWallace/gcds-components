@@ -9,6 +9,7 @@ import {
   Fragment,
 } from '@stencil/core';
 import Prism from 'prismjs';
+import 'prismjs/components/prism-jsx';
 import prettier from 'prettier';
 import prettierPluginHTML from 'prettier/plugins/html';
 import axe from 'axe-core';
@@ -155,7 +156,7 @@ export class ElementDisplay {
   //////// Code preview
 
   private convertToReact(str) {
-    let react = str.replace(
+    const react = str.replace(
       /"([^"]*)"|(\b[a-z]+(?:-[a-z]+)+\b)/g,
       (match, quoted, kebab) => {
         if (quoted) return `"${quoted}"`;
@@ -168,11 +169,16 @@ export class ElementDisplay {
       },
     );
 
-    return react.replace(/<g/g, '<G').replace(/<\/g/g, '</G');
+    const code = react.replace(/<g/g, '<G').replace(/<\/g/g, '</G');
+    const componentName = code.match(/<\w+/);
+
+    const importStatement = `import { ${componentName[0].replace('<', '')} } from @cdssnc/gcds-components-react; \n\n`;
+
+    return importStatement + code;
   }
 
   private removeUnwantedAttributes(html) {
-    const regex = /\s*(aria-[a-z\-]+|class|(?<!-)\brole\b)="[^"]*"/g;
+    const regex = /\s*(aria-[a-z-]+|class|(?<!-)\brole\b)="[^"]*"/g;
     return html.replace(regex, '');
   }
 
@@ -190,7 +196,7 @@ export class ElementDisplay {
     );
     this.reactCodePreview.innerHTML = Prism.highlight(
       react,
-      Prism.languages.html,
+      Prism.languages.jsx,
       'html',
     );
   }
@@ -217,18 +223,19 @@ export class ElementDisplay {
 
   private async runA11yTest() {
     try {
-      let container = this.el.shadowRoot.getElementById('test-container');
+      const container = this.el.shadowRoot.getElementById('test-container');
 
       container.innerHTML = this.displayElement.outerHTML;
 
       setTimeout(async () => {
         if (this.lang === 'fr') {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-expect-error
           axe.configure({ locale: axeLocaleFr });
         }
 
         this.axeResults = await axe.run(container);
-        console.log(this.axeResults)
+        console.log(this.axeResults);
         console.log('Accessibility Violations:', this.axeResults.violations);
 
         container.innerHTML = '';
@@ -443,7 +450,7 @@ export class ElementDisplay {
                 this.attributeObject.map(attr => {
                   let control = '';
 
-                  let displayValue =
+                  const displayValue =
                     this.displayElement.getAttribute(attr.name) != null
                       ? this.displayElement.getAttribute(attr.name)
                       : attr?.defaultValue;
@@ -575,6 +582,13 @@ export class ElementDisplay {
               >
                 Run accessibility test
               </gcds-button>
+
+              <p aria-live="polite">
+                {this.axeResults && this.axeResults.violations.length > 0
+                  ? `${this.axeResults.violations.length} issue(s) found. Please reference table below for more details.`
+                  : this.axeResults &&
+                    `No issues found. Please reference table below to see passed tests.`}
+              </p>
 
               <div id="test-container" class=""></div>
 
