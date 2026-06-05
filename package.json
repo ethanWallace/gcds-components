@@ -16,6 +16,7 @@
     "test:unit": "npm run test:angular:unit && npm run pretest:web && npm run test:unit --workspace=packages/web",
     "test:visual": "npm run test:visual -w @gcds-core/components",
     "pretest:web": "npm run patch:stenciljs",
+    "pretest:web:unit": "npm run patch:stenciljs",
     "pretest:angular": "npm i --prefix packages/angular/tests/app && npm run build:web",
     "test:web:unit": "npm run test:unit --workspace=packages/web",
     "test:web:e2e": "npm run test:e2e --workspace=packages/web",
