@@ -70,7 +70,7 @@ export const test = base.extend({
         ).filter(el => el.tagName.toLowerCase().startsWith('gcds-'));
         return (
           gcdsEls.length > 0 &&
-          gcdsEls.every(el => el.classList.contains('hydrated'))
+          gcdsEls.every(el => el.shadowRoot && el.shadowRoot.querySelector('.hydrated'))
         );
       },
       { timeout: 30000 },
