@@ -42,14 +42,14 @@ export const test = base.extend({
     const componentName = path.basename(filePath).replace('.visual.ts', '');
 
     // Register font interception before navigation so no font request escapes
-    await page.route(/fonts\.googleapis\.com/, route =>
-      route.fulfill({
-        contentType: 'text/css',
-        body: fs.readFileSync(path.join(FONT_DIR, 'all-fonts.css'), 'utf8'),
-      }),
-    );
-    await page.route(/fonts\.gstatic\.com/, serveLocalFontFile);
-    await page.route(/cdn\.design-system\.canada\.ca/, serveLocalFontFile);
+    // await page.route(/fonts\.googleapis\.com/, route =>
+    //   route.fulfill({
+    //     contentType: 'text/css',
+    //     body: fs.readFileSync(path.join(FONT_DIR, 'all-fonts.css'), 'utf8'),
+    //   }),
+    // );
+    // await page.route(/fonts\.gstatic\.com/, serveLocalFontFile);
+    // await page.route(/cdn\.design-system\.canada\.ca/, serveLocalFontFile);
 
     await page.goto(`/components/${componentName}/test/${baseFileName}`, {
       waitUntil: 'domcontentloaded',
