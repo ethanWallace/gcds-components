@@ -10,28 +10,28 @@ import path from 'path';
  * Intercepting the font hosts makes rendering deterministic and offline-safe.
  * To refresh the local copies, see tests/fonts/README.md.
  */
-// const FONT_DIR = path.join(__dirname, 'fonts');
+const FONT_DIR = path.join(__dirname, 'fonts');
 
-// const FONT_CONTENT_TYPES: Record<string, string> = {
-//   '.woff2': 'font/woff2',
-//   '.woff': 'font/woff',
-//   '.ttf': 'font/ttf',
-// };
+const FONT_CONTENT_TYPES: Record<string, string> = {
+  '.woff2': 'font/woff2',
+  '.woff': 'font/woff',
+  '.ttf': 'font/ttf',
+};
 
-// const serveLocalFontFile = (route: Route) => {
-//   const url = new URL(route.request().url());
-//   const fileName = path.basename(url.pathname);
-//   const localPath = path.join(FONT_DIR, 'files', fileName);
-//   if (fs.existsSync(localPath)) {
-//     return route.fulfill({
-//       contentType:
-//         FONT_CONTENT_TYPES[path.extname(fileName)] ?? 'application/octet-stream',
-//       body: fs.readFileSync(localPath),
-//     });
-//   }
-//   // Not a file we mirror (e.g. other CDN assets) — let it hit the network
-//   return route.continue();
-// };
+const serveLocalFontFile = (route: Route) => {
+  const url = new URL(route.request().url());
+  const fileName = path.basename(url.pathname);
+  const localPath = path.join(FONT_DIR, 'files', fileName);
+  if (fs.existsSync(localPath)) {
+    return route.fulfill({
+      contentType:
+        FONT_CONTENT_TYPES[path.extname(fileName)] ?? 'application/octet-stream',
+      body: fs.readFileSync(localPath),
+    });
+  }
+  // Not a file we mirror (e.g. other CDN assets) — let it hit the network
+  return route.continue();
+};
 
 export const test = base.extend({
   page: async ({ page }: { page: Page }, use, testInfo) => {
@@ -42,14 +42,14 @@ export const test = base.extend({
     const componentName = path.basename(filePath).replace('.visual.ts', '');
 
     // Register font interception before navigation so no font request escapes
-    // await page.route(/fonts\.googleapis\.com/, route =>
-    //   route.fulfill({
-    //     contentType: 'text/css',
-    //     body: fs.readFileSync(path.join(FONT_DIR, 'all-fonts.css'), 'utf8'),
-    //   }),
-    // );
-    // await page.route(/fonts\.gstatic\.com/, serveLocalFontFile);
-    // await page.route(/cdn\.design-system\.canada\.ca/, serveLocalFontFile);
+    await page.route(/fonts\.googleapis\.com/, route =>
+      route.fulfill({
+        contentType: 'text/css',
+        body: fs.readFileSync(path.join(FONT_DIR, 'all-fonts.css'), 'utf8'),
+      }),
+    );
+    await page.route(/fonts\.gstatic\.com/, serveLocalFontFile);
+    await page.route(/cdn\.design-system\.canada\.ca/, serveLocalFontFile);
 
     await page.goto(`/components/${componentName}/test/${baseFileName}`, {
       waitUntil: 'domcontentloaded',
@@ -70,7 +70,7 @@ export const test = base.extend({
         ).filter(el => el.tagName.toLowerCase().startsWith('gcds-'));
         return (
           gcdsEls.length > 0 &&
-          gcdsEls.every(el => el.shadowRoot && el.shadowRoot.querySelector('.hydrated'))
+          gcdsEls.every(el => el.classList.contains('hydrated'))
         );
       },
       { timeout: 30000 },
