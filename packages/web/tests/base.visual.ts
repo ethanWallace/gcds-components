@@ -1,3 +1,4 @@
+
 import { test as base, type Page, type Route } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
@@ -10,28 +11,28 @@ import path from 'path';
  * Intercepting the font hosts makes rendering deterministic and offline-safe.
  * To refresh the local copies, see tests/fonts/README.md.
  */
-const FONT_DIR = path.join(__dirname, 'fonts');
+// const FONT_DIR = path.join(__dirname, 'fonts');
 
-const FONT_CONTENT_TYPES: Record<string, string> = {
-  '.woff2': 'font/woff2',
-  '.woff': 'font/woff',
-  '.ttf': 'font/ttf',
-};
+// const FONT_CONTENT_TYPES: Record<string, string> = {
+//   '.woff2': 'font/woff2',
+//   '.woff': 'font/woff',
+//   '.ttf': 'font/ttf',
+// };
 
-const serveLocalFontFile = (route: Route) => {
-  const url = new URL(route.request().url());
-  const fileName = path.basename(url.pathname);
-  const localPath = path.join(FONT_DIR, 'files', fileName);
-  if (fs.existsSync(localPath)) {
-    return route.fulfill({
-      contentType:
-        FONT_CONTENT_TYPES[path.extname(fileName)] ?? 'application/octet-stream',
-      body: fs.readFileSync(localPath),
-    });
-  }
-  // Not a file we mirror (e.g. other CDN assets) — let it hit the network
-  return route.continue();
-};
+// const serveLocalFontFile = (route: Route) => {
+//   const url = new URL(route.request().url());
+//   const fileName = path.basename(url.pathname);
+//   const localPath = path.join(FONT_DIR, 'files', fileName);
+//   if (fs.existsSync(localPath)) {
+//     return route.fulfill({
+//       contentType:
+//         FONT_CONTENT_TYPES[path.extname(fileName)] ?? 'application/octet-stream',
+//       body: fs.readFileSync(localPath),
+//     });
+//   }
+//   // Not a file we mirror (e.g. other CDN assets) — let it hit the network
+//   return route.continue();
+// };
 
 export const test = base.extend({
   page: async ({ page }: { page: Page }, use, testInfo) => {
@@ -55,8 +56,7 @@ export const test = base.extend({
       waitUntil: 'domcontentloaded',
     });
 
-    // Wait for fonts, capped on the Node side. An in-page timer can't fire if
-    // the page's main thread is busy, so the cap runs in Node instead.
+    // Wait for fonts, capped on the Node side.
     await Promise.race([
       page.evaluate(() => document.fonts.ready),
       page.waitForTimeout(10000),
@@ -68,6 +68,7 @@ export const test = base.extend({
         const gcdsEls = Array.from(
           document.querySelectorAll('.preview-component *'),
         ).filter(el => el.tagName.toLowerCase().startsWith('gcds-'));
+
         return (
           gcdsEls.length > 0 &&
           gcdsEls.every(el => el.classList.contains('hydrated'))
@@ -76,10 +77,7 @@ export const test = base.extend({
       { timeout: 30000 },
     );
 
-    // The gcds-icons glyph font is requested only once components hydrate and
-    // render their .gcds-icon elements — after the font wait above. Force it
-    // to load now, otherwise ::before renders the raw \fXXX codepoint instead
-    // of the icon glyph.
+    // Load the gcds-icons font after components hydrate.
     await Promise.race([
       page.evaluate(() =>
         document.fonts.load('1em "gcds-icons"').then(() => document.fonts.ready),
@@ -88,5 +86,15 @@ export const test = base.extend({
     ]);
 
     await use(page);
+
+    // Attach the actual screenshot to the report (pass or fail)
+    const screenshot = await page.screenshot({
+      fullPage: true,
+    });
+
+    await testInfo.attach(`${componentName}-actual-screenshot`, {
+      body: screenshot,
+      contentType: 'image/png',
+    });
   },
 });
