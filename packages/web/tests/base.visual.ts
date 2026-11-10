@@ -1,36 +1,73 @@
-import { test as base, type Page, type Route } from '@playwright/test';
-import fs from 'fs';
+
+import { test as base, type Page } from '@playwright/test';
+
 import path from 'path';
 
 /**
- * Fonts are served from local copies (tests/fonts/) instead of the network.
- * Screenshots depend on Lato/Noto Sans (Google Fonts) and the gcds-icons glyph
- * font (design-system CDN); any request that loses the network race changes
- * text metrics or renders raw \fXXX codepoints, producing flaky pixel diffs.
- * Intercepting the font hosts makes rendering deterministic and offline-safe.
- * To refresh the local copies, see tests/fonts/README.md.
+ * Explicitly load all fonts used by GCDS before taking visual screenshots.
  */
-const FONT_DIR = path.join(__dirname, 'fonts');
+const waitForFonts = async (page: Page) => {
+  // Font families, weights and styles declared in all-fonts.css
+  const fonts = [
+    // GCDS Icons
+    'normal 16px "gcds-icons"',
 
-const FONT_CONTENT_TYPES: Record<string, string> = {
-  '.woff2': 'font/woff2',
-  '.woff': 'font/woff',
-  '.ttf': 'font/ttf',
-};
+    // Lato
+    '700 16px "Lato"',
+    'italic 700 16px "Lato"',
 
-const serveLocalFontFile = (route: Route) => {
-  const url = new URL(route.request().url());
-  const fileName = path.basename(url.pathname);
-  const localPath = path.join(FONT_DIR, 'files', fileName);
-  if (fs.existsSync(localPath)) {
-    return route.fulfill({
-      contentType:
-        FONT_CONTENT_TYPES[path.extname(fileName)] ?? 'application/octet-stream',
-      body: fs.readFileSync(localPath),
-    });
-  }
-  // Not a file we mirror (e.g. other CDN assets) — let it hit the network
-  return route.continue();
+    // Noto Sans
+    '300 16px "Noto Sans"',
+    '400 16px "Noto Sans"',
+    '500 16px "Noto Sans"',
+    '600 16px "Noto Sans"',
+    '700 16px "Noto Sans"',
+
+    // Noto Sans Italic
+    'italic 300 16px "Noto Sans"',
+    'italic 400 16px "Noto Sans"',
+    'italic 500 16px "Noto Sans"',
+    'italic 600 16px "Noto Sans"',
+    'italic 700 16px "Noto Sans"',
+
+    // Noto Sans Mono
+    '400 16px "Noto Sans Mono"',
+  ];
+
+  // Explicitly request every font face.
+  await Promise.race([
+    page.evaluate(async (fontDefinitions) => {
+      await Promise.all(
+        fontDefinitions.map((font) =>
+          document.fonts.load(font, 'Hamburgefontsiv 0123456789'),
+        ),
+      );
+
+      await document.fonts.ready;
+
+      // Verify that all requested fonts are available.
+      const missingFonts = fontDefinitions.filter(
+        (font) => !document.fonts.check(font),
+      );
+
+      if (missingFonts.length > 0) {
+        throw new Error(
+          `The following fonts failed to load: ${missingFonts.join(', ')}`,
+        );
+      }
+    }, fonts),
+    page.waitForTimeout(15000).then(() => {
+      throw new Error('Timed out waiting for GCDS fonts to load.');
+    }),
+  ]);
+
+  // Allow the browser to render using the loaded fonts.
+  await page.evaluate(
+    () =>
+      new Promise<void>((resolve) =>
+        requestAnimationFrame(() => resolve()),
+      ),
+  );
 };
 
 export const test = base.extend({
@@ -41,33 +78,17 @@ export const test = base.extend({
       .replace('.visual.ts', '.visual.html');
     const componentName = path.basename(filePath).replace('.visual.ts', '');
 
-    // Register font interception before navigation so no font request escapes
-    await page.route(/fonts\.googleapis\.com/, route =>
-      route.fulfill({
-        contentType: 'text/css',
-        body: fs.readFileSync(path.join(FONT_DIR, 'all-fonts.css'), 'utf8'),
-      }),
-    );
-    await page.route(/fonts\.gstatic\.com/, serveLocalFontFile);
-    await page.route(/cdn\.design-system\.canada\.ca/, serveLocalFontFile);
-
     await page.goto(`/components/${componentName}/test/${baseFileName}`, {
       waitUntil: 'domcontentloaded',
     });
 
-    // Wait for fonts, capped on the Node side. An in-page timer can't fire if
-    // the page's main thread is busy, so the cap runs in Node instead.
-    await Promise.race([
-      page.evaluate(() => document.fonts.ready),
-      page.waitForTimeout(10000),
-    ]);
-
-    // Wait for all GCDS components inside the preview regions to hydrate
+    // Wait for all GCDS components inside the preview regions to hydrate.
     await page.waitForFunction(
       () => {
         const gcdsEls = Array.from(
           document.querySelectorAll('.preview-component *'),
         ).filter(el => el.tagName.toLowerCase().startsWith('gcds-'));
+
         return (
           gcdsEls.length > 0 &&
           gcdsEls.every(el => el.classList.contains('hydrated'))
@@ -76,16 +97,9 @@ export const test = base.extend({
       { timeout: 30000 },
     );
 
-    // The gcds-icons glyph font is requested only once components hydrate and
-    // render their .gcds-icon elements — after the font wait above. Force it
-    // to load now, otherwise ::before renders the raw \fXXX codepoint instead
-    // of the icon glyph.
-    await Promise.race([
-      page.evaluate(() =>
-        document.fonts.load('1em "gcds-icons"').then(() => document.fonts.ready),
-      ),
-      page.waitForTimeout(10000),
-    ]);
+    // Load all font families, weights and styles after component hydration.
+    // This also ensures the icon font is ready before screenshots.
+    await waitForFonts(page);
 
     await use(page);
   },
