@@ -40,7 +40,7 @@ export default createConfig({
       // change measures ~2% — while clearing the render noise floor. Baselines
       // MUST be regenerated on Linux CI; a local (macOS) render differs by ~1%.
       // A ratio, not a flat pixel count, so tolerance scales with element size.
-      maxDiffPixelRatio: 0.005,
+      maxDiffPixelRatio: 0.0025,
     },
   },
 
