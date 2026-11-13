@@ -1,0 +1,10 @@
+@* Generated from Custom Elements Manifest — do not edit directly *@
+@inherits GeneratedComponentBase
+<gcds-side-nav @ref="Element" @attributes="AdditionalAttributes" class="@GetCssClass()" style="@GetStyle()" label="@Label">
+    @ChildContent
+
+    @if (HomeContent is not null)
+    {
+        <span slot="home">@HomeContent</span>
+    }
+</gcds-side-nav>

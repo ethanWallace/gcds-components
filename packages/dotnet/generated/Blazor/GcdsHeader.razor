@@ -1,0 +1,43 @@
+@* Generated from Custom Elements Manifest — do not edit directly *@
+@inherits GeneratedComponentBase
+<gcds-header @ref="Element" @attributes="AdditionalAttributes" class="@GetCssClass()" style="@GetStyle()" lang-href="@LangHref" signature-has-link="@RenderOnOffAttribute("signature-has-link", SignatureHasLink, "false")" skip-to-href="@SkipToHref">
+    @if (AccountContent is not null)
+    {
+        <span slot="account">@AccountContent</span>
+    }
+
+    @if (BannerContent is not null)
+    {
+        <span slot="banner">@BannerContent</span>
+    }
+
+    @if (BreadcrumbContent is not null)
+    {
+        <span slot="breadcrumb">@BreadcrumbContent</span>
+    }
+
+    @if (MenuContent is not null)
+    {
+        <span slot="menu">@MenuContent</span>
+    }
+
+    @if (SearchContent is not null)
+    {
+        <span slot="search">@SearchContent</span>
+    }
+
+    @if (SignatureContent is not null)
+    {
+        <span slot="signature">@SignatureContent</span>
+    }
+
+    @if (SkipToNavContent is not null)
+    {
+        <span slot="skip-to-nav">@SkipToNavContent</span>
+    }
+
+    @if (ToggleContent is not null)
+    {
+        <span slot="toggle">@ToggleContent</span>
+    }
+</gcds-header>

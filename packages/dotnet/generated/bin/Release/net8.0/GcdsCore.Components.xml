@@ -1,0 +1,2214 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GcdsCore.Components</name>
+    </assembly>
+    <members>
+        <member name="T:GcdsCore.Components.CustomEventArgs">
+            <summary>
+            Wraps a DOM CustomEvent dispatched by a web component, passed from JS
+            interop into the generated Blazor component's [JSInvokable] handlers.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.CustomEventArgs.Detail">
+            <summary>
+            The event's `detail` payload, as raw JSON. Deserialize with
+            <c>Detail?.Deserialize&lt;T&gt;()</c> into whatever shape the
+            specific custom event's detail is documented to carry.
+            </summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsAlert">
+            <summary>
+            Alert displays an alert message with an optional heading, icon, and close button.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsAlert.AlertRole">
+            <summary>Defines alert role.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsAlert.Container">
+            <summary>Defines the max width of the alert content.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsAlert.Heading">
+            <summary>(required) Defines the alert heading.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsAlert.HideCloseBtn">
+            <summary>Defines if the alert's close button is displayed or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsAlert.HideRoleIcon">
+            <summary>Defines if the alert's role icon is displayed or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsAlert.IsFixed">
+            <summary>Defines if the alert's position is fixed.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsAlert.OnGcdsDismiss">
+            <summary>Events</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsBreadcrumbs">
+            <summary>
+            Breadcrumbs is a path to the current page from each preceding level of the site's hierarchy.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsBreadcrumbs.HideCanadaLink">
+            <summary>Defines if the default canada.ca link is displayed or omitted.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsBreadcrumbsItem">
+            <summary>
+            Breadcrumbs item represents a single link in the breadcrumbs navigation.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsBreadcrumbsItem.Href">
+            <summary>(required) Specifies the href of the breadcrumb item.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsBreadcrumbsItem.OnGcdsBlur">
+            <summary>Emitted when the link loses focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsBreadcrumbsItem.OnGcdsClick">
+            <summary>Emitted when the link has been clicked. Contains the href in the event detail.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsBreadcrumbsItem.OnGcdsFocus">
+            <summary>Emitted when the link has focus.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsButton">
+            <summary>
+            The button is an interactive object that emphasizes an action.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButton.ButtonId">
+            <summary>The buttonId attribute specifies the id for a &lt;button&gt; element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButton.ButtonRole">
+            <summary>Set the main style</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButton.Disabled">
+            <summary>The disabled attribute for a &lt;button&gt; element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButton.Download">
+            <summary>The download attribute specifies that the target (the file specified in the href attribute) will be downloaded when a user clicks on the hyperlink</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButton.Href">
+            <summary>The href attribute specifies the URL of the page the link goes to</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButton.Name">
+            <summary>The name attribute specifies the name for a &lt;button&gt; element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButton.Rel">
+            <summary>The rel attribute specifies the relationship between the current document and the linked document</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButton.Size">
+            <summary>Set the button size</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButton.Target">
+            <summary>The target attribute specifies where to open the linked document</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButton.Type">
+            <summary>Set button types</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButton.Value">
+            <summary>The value attribute specifies the value for a &lt;button&gt; element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButton.OnGcdsBlur">
+            <summary>Emitted when the button loses focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButton.OnGcdsClick">
+            <summary>Emitted when the button has been clicked. Contains the value or href in the event detail.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButton.OnGcdsFocus">
+            <summary>Emitted when the button has focus.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsCard">
+            <summary>
+            A card is a box containing structured, actionable content on a single topic.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCard.Badge">
+            <summary>The badge attribute specifies the badge text that appears in the top left corner of the card. 20 character limit.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCard.CardTitle">
+            <summary>(required) The card title attribute specifies the title that appears on the card</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCard.CardTitleTag">
+            <summary>The card title tag property specifies the HTML heading element for the title. This property does not modify the font size. It is used to assign the heading level in order to maintain heading hierarchy and accessibility for assistive technologies.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCard.Description">
+            <summary>The description attribute specifies the body of text that appears on the card</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCard.Href">
+            <summary>(required) The href attribute specifies the URL of the page the link goes to</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCard.ImgAlt">
+            <summary>The img alt attribute specifies the alt text for the image provided, if none, image will be decorative</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCard.ImgSrc">
+            <summary>The img src attribute specifies the path to the image</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCard.Rel">
+            <summary>The rel attribute specifies the relationship between the current document and the linked document</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCard.Target">
+            <summary>The target attribute specifies where to open the linked document</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCard.OnGcdsBlur">
+            <summary>Emitted when the card loses focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCard.OnGcdsClick">
+            <summary>Emitted when the card has been clicked. Contains the href in the event detail.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCard.OnGcdsFocus">
+            <summary>Emitted when the card has focus.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsCheckboxes">
+            <summary>
+            Checkboxes provide a set of options for multiple responses.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxes.Autofocus">
+            <summary>If true, the checkbox will be focused on component render</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxes.Disabled">
+            <summary>Specifies if the checkboxes are disabled or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxes.ErrorMessage">
+            <summary>Set this to display an error message for invalid &lt;gcds-checkboxes&gt;</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxes.Form">
+            <summary>The ID of the form that the checkboxes belong to.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxes.HideLabel">
+            <summary>For single checkbox, specifies if the label is hidden or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxes.HideLegend">
+            <summary>For checkbox groups, specifies if the legend is hidden or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxes.Hint">
+            <summary>Hint displayed below the label.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxes.Legend">
+            <summary>Set the legend for fieldset form group.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxes.Name">
+            <summary>(required) Name attribute for a checkboxes element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxes.Options">
+            <summary>(required) Options to render checkboxes buttons</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxes.Required">
+            <summary>Specifies if the checkboxes are required or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxes.ValidateOn">
+            <summary>Set event to call validator</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxes.Value">
+            <summary>Value for checkboxes component.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxes.OnGcdsBlur">
+            <summary>Emitted when the checkbox loses focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxes.OnGcdsChange">
+            <summary>Emitted when a checkbox has been changed. Contains the new value in the event detail.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxes.OnGcdsClick">
+            <summary>Emitted when the checkbox has been clicked.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxes.OnGcdsError">
+            <summary>Emitted when the checkbox has a validation error.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxes.OnGcdsFocus">
+            <summary>Emitted when the checkbox has focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxes.OnGcdsInput">
+            <summary>Emitted when a checkbox has been inputted. Contains the new value in the event detail.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxes.OnGcdsValid">
+            <summary>Emitted when the checkbox has a validation error.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsContainer">
+            <summary>
+            A container is a basic box layout with a set width for its contents.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsContainer.Alignment">
+            <summary>Defines the container's alignment. This property is ignored when `layout` is set to `page`, as the page layout has higher priority.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsContainer.Border">
+            <summary>Defines if the container has a border.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsContainer.Layout">
+            <summary>Controls how the container aligns with the page layout. When set to `page`, the container uses a max width of 1140px and switches to 90% width on smaller screens to scale consistently with core page layout components such as the header and footer. When set to `full`, the container spans the full width (100%) of its parent.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsContainer.Margin">
+            <summary>Container margin. Horizontal margins (left and right) are not applied if the container’s alignment property is defined, since alignment has higher priority.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsContainer.Padding">
+            <summary>Defines the container's padding.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsContainer.Size">
+            <summary>Defines container size.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsContainer.Tag">
+            <summary>Set tag for container.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsDateInput">
+            <summary>
+            A date input is a space to enter a known date.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInput.Autocomplete">
+            <summary>String to have autocomplete enabled.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInput.Autofocus">
+            <summary>If true, the date-input will be focused on component render</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInput.Disabled">
+            <summary>Specifies if the date input is disabled or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInput.ErrorMessage">
+            <summary>Error message displayed below the legend and above form fields.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInput.Form">
+            <summary>The ID of the form that the date-input field belongs to.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInput.Format">
+            <summary>(required) Set this property to full to show month, day, and year form elements. Set it to compact to show only the month and year form elements. Set it to `iso` to use numeric month input and `YYYY-MM-DD` entry order.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInput.Hint">
+            <summary>Hint displayed below the legend and above form fields.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInput.Legend">
+            <summary>(required) Fieldset legend</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInput.Max">
+            <summary>The maximum date that the date-input field can accept. Format: YYYY-MM-DD or YYYY-MM</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInput.Min">
+            <summary>The minimum date that the date-input field can accept. Format: YYYY-MM-DD or YYYY-MM</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInput.Name">
+            <summary>(required) Name attribute for the date input.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInput.Required">
+            <summary>Specifies if a form field is required or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInput.ValidateOn">
+            <summary>Set event to call validator</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInput.Value">
+            <summary>Combined date value from the two/three form elements. Format: YYYY-MM-DD or YYYY-MM</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInput.OnGcdsBlur">
+            <summary>Emitted when a date-input loses focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInput.OnGcdsChange">
+            <summary>Emitted when a date-input has changed. Contains the new value in the event detail.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInput.OnGcdsError">
+            <summary>Emitted when a date-input has a validation error.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInput.OnGcdsFocus">
+            <summary>Emitted when a date-input has focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInput.OnGcdsInput">
+            <summary>Emitted when the date-input has received input. Contains the new value in the event detail.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInput.OnGcdsValid">
+            <summary>Emitted when a date-input has validated.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsDateModified">
+            <summary>
+            Date modified is an indicator of the last update to a webpage or application.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateModified.Type">
+            <summary>Set date modified type. Default is date.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsDetails">
+            <summary>
+            Details is an interactive switch for a person to expand or collapse content.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDetails.DetailsTitle">
+            <summary>(required) The details title summarizes the panel content.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDetails.Open">
+            <summary>Defines if the details panel is open by default or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDetails.OnGcdsBlur">
+            <summary>Emitted when the details loses focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDetails.OnGcdsClick">
+            <summary>Emitted when the details has been clicked.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDetails.OnGcdsFocus">
+            <summary>Emitted when the details has focus.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsErrorMessage">
+            <summary>
+            An error message is a description of a problem blocking a user goal.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsErrorMessage.MessageId">
+            <summary>(required) Id attribute for the error message.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsErrorSummary">
+            <summary>
+            An error summary is a list of user errors in a form.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsErrorSummary.ErrorLinks">
+            <summary>Object of list items for error list. Format: { link-href: link-label }</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsErrorSummary.Heading">
+            <summary>Set error summary heading</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsErrorSummary.Listen">
+            <summary>Specifies if the error summary should listen for GcdsError event to generate error list.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsErrorSummary.OnGcdsBlur">
+            <summary>Emitted when the link loses focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsErrorSummary.OnGcdsClick">
+            <summary>Emitted when the link has been clicked.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsErrorSummary.OnGcdsFocus">
+            <summary>Emitted when the link has focus.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsFieldset">
+            <summary>
+            A fieldset is a group of multiple form components or elements.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFieldset.Hint">
+            <summary>Hint displayed below the legend.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFieldset.Legend">
+            <summary>(required) The title for the contents of the fieldset</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFieldset.LegendSize">
+            <summary>(required) Sets the appropriate font size for the fieldset legend.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsFileUploader">
+            <summary>
+            A file uploader is a space to select and add supporting documentation.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploader.Accept">
+            <summary>Defines the file types the file uploader accepts.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploader.Autofocus">
+            <summary>If true, the file uploader will be focused on component render</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploader.Disabled">
+            <summary>Specifies if a file uploader element is disabled or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploader.ErrorMessage">
+            <summary>Error message for an invalid file uploader element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploader.Form">
+            <summary>The ID of the form that the file uploader field belongs to.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploader.HideLabel">
+            <summary>Specifies if the label is hidden or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploader.Hint">
+            <summary>Hint displayed below the label.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploader.Label">
+            <summary>(required) Form field label.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploader.Multiple">
+            <summary>Boolean that specifies if the user is allowed to select more than one file.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploader.Name">
+            <summary>(required) Name attribute for file input element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploader.Required">
+            <summary>Specifies if a form field is required or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploader.UploaderId">
+            <summary>(required) Id attribute for a file uploader element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploader.ValidateOn">
+            <summary>Set event to call validator</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploader.OnGcdsBlur">
+            <summary>Emitted when the uploader loses focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploader.OnGcdsChange">
+            <summary>Emitted when the user has made a file selection. Contains the new value in the event detail.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploader.OnGcdsError">
+            <summary>Emitted when the uploader has a validation error.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploader.OnGcdsFocus">
+            <summary>Emitted when the uploader has focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploader.OnGcdsInput">
+            <summary>Emitted when the user has uploaded a file. Contains the new value in the event detail.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploader.OnGcdsRemoveFile">
+            <summary>Remove file and update value.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploader.OnGcdsValid">
+            <summary>Emitted when the uploader has a validation error.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsFooter">
+            <summary>
+            The footer is the responsive Government of Canada branded footer landmark.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFooter.ContextualHeading">
+            <summary>Heading for contextual slot and nav landmark</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFooter.ContextualLinks">
+            <summary>Object of list items for contextual band. Format: { link-label: link-href }</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFooter.Display">
+            <summary>Display mode of the footer</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFooter.SubLinks">
+            <summary>Object of list items for sub-footer. Format: { link-label: link-href }</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFooter.OnGcdsBlur">
+            <summary>Emitted when the link loses focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFooter.OnGcdsClick">
+            <summary>Emitted when the link has been clicked. Contains the href in the event detail.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFooter.OnGcdsFocus">
+            <summary>Emitted when the link has focus.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsGrid">
+            <summary>
+            A grid is a responsive, flexible column layout to position elements on a page.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGrid.AlignContent">
+            <summary>If total grid size is less than the size of its grid container, this property aligns the grid along the block (column) axis</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGrid.AlignItems">
+            <summary>Aligns grid items along the block (column) axis</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGrid.Alignment">
+            <summary>Defines the grid's alignment if the grid containers size is smaller than the parent's size.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGrid.Columns">
+            <summary>Defines the default number of grid columns for all viewports if columns-tablet and columns-desktop are not defined. Option to set different layouts for desktop with columns-desktop and for tablet with columns-tablet.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGrid.ColumnsDesktop">
+            <summary>Provides option to set a different number of grid columns for desktop screens.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGrid.ColumnsTablet">
+            <summary>Provides option to set a different number of grid columns for tablet screens. If columns-desktop is not defined, columns-tablet will be used to define the number of columns for desktop as well.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGrid.Container">
+            <summary>Defines grid container size</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGrid.Display">
+            <summary>Defines element as grid or inline-grid container</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGrid.EqualRowHeight">
+            <summary>Sets all grid items to have an equal height, based on the tallest item.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGrid.Gap">
+            <summary>Defines the horizontal and vertical spacing between items in a grid container for all viewports if gap-tablet and gap-desktop are not defined. Option to set different spacing for desktop with gap-desktop and for tablet with gap-tablet.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGrid.GapDesktop">
+            <summary>Provides option to set horizontal and vertical spacing between items in a grid container for desktop screens.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGrid.GapTablet">
+            <summary>Provides option to set horizontal and vertical spacing between items in a grid container for tablet screens. If gap-desktop is not defined, gap-tablet will be used to define the spacing for desktop screens as well.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGrid.JustifyContent">
+            <summary>If total grid size is less than the size of its grid container, this property aligns the grid along the inline (row) axis</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGrid.JustifyItems">
+            <summary>Aligns grid items along the inline (row) axis</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGrid.PlaceContent">
+            <summary>Sets both the align-content + justify-content properties</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGrid.PlaceItems">
+            <summary>Sets both the align-items + justify-items properties</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGrid.Tag">
+            <summary>Set tag for grid container</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsGridCol">
+            <summary>
+            A grid column is a single column in a grid layout, allowing for flexible content arrangement.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridCol.Desktop">
+            <summary>Optimize grid column size for desktop (1024px and above). Desktop grid column sizes are based on a 12 column grid.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridCol.Tablet">
+            <summary>Optimize grid column size for tablet (768px - 1023px). Tablet grid column sizes are based on a 6 column grid. The tablet size will also be used for desktop, if desktop is undefined.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridCol.Tag">
+            <summary>Set tag for grid column</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsHeader">
+            <summary>
+            The header is the responsive Government of Canada branded header landmark.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsHeader.LangHref">
+            <summary>(required) GcdsLangToggle - The href attribute specifies the URL of the opposite language page</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsHeader.SignatureHasLink">
+            <summary>GcdsSignature - GCDS signature links to Canada.ca</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsHeader.SkipToHref">
+            <summary>(required) Top navigation - Skip to content href</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsHeader.OnGcdsBlur">
+            <summary>Emitted when the link loses focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsHeader.OnGcdsClick">
+            <summary>Emitted when the link has been clicked. Contains the href in the event detail.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsHeader.OnGcdsFocus">
+            <summary>Emitted when the link has focus.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsHeading">
+            <summary>
+            A heading is a title that establishes levels of hierarchy to organize page content into a structure and matches Canada.ca typography styles.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsHeading.CharacterLimit">
+            <summary>Sets the line length to a maximum amount of characters per line for each heading level, ensuring a comfortable, accessible reading length.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsHeading.HeadingRole">
+            <summary>Sets the main style of the heading.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsHeading.MarginBottom">
+            <summary>Adds margin below the heading. The default margin-botttom is 300.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsHeading.MarginTop">
+            <summary>Adds margin above the heading. The default margin-top for h1 is set to 0, while for h2 to h6 headings, it's 600.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsHeading.Tag">
+            <summary>(required) Sets the appropriate HTML tag for the selected level.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsHint">
+            <summary>
+            Hint provides additional information or context to help users understand the content or functionality of a related element.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsHint.HintId">
+            <summary>Id attribute for the hint.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsIcon">
+            <summary>
+            An icon is a symbol that visually represents an action or idea.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsIcon.Label">
+            <summary>Add icon description.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsIcon.MarginLeft">
+            <summary>Add margin to the left of the icon</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsIcon.MarginRight">
+            <summary>Add margin to the right of the icon</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsIcon.Name">
+            <summary>(required) Name of the icon.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsIcon.Size">
+            <summary>Defines the size of the icon.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsInput">
+            <summary>
+            An input is a space to enter short-form information in response to a question or instruction.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.Autocomplete">
+            <summary>String to have autocomplete enabled.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.Autofocus">
+            <summary>If true, the input will be focused on component render</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.Disabled">
+            <summary>Specifies if an input element is disabled or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.ErrorMessage">
+            <summary>Error message for an invalid input element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.Form">
+            <summary>The ID of the form that the input field belongs to.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.HideLabel">
+            <summary>Specifies if the label is hidden or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.Hint">
+            <summary>Hint displayed below the label and above the input field.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.InputId">
+            <summary>(required) Id attribute for an input element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.Label">
+            <summary>(required) Form field label</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.Max">
+            <summary>The maximum value that the input field can accept. Only applies to number input type.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.Maxlength">
+            <summary>The maximum number of characters that the input field can accept.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.Min">
+            <summary>The minimum value that the input field can accept. Only applies to number input type.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.Minlength">
+            <summary>The minimum number of characters that the input field can accept.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.Name">
+            <summary>(required) Name attribute for an input element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.Pattern">
+            <summary>Specifies a regular expression the form control's value should match. See: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/pattern</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.Readonly">
+            <summary>If true, the input field cannot be modified.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.Required">
+            <summary>Specifies if a form field is required or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.Size">
+            <summary>Size attribute for an input element to provide a visual indication of the expected text length to the user.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.Step">
+            <summary>A number that specifies the granularity that the value must adhere to. Valid for number type. See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#step</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.Suggestions">
+            <summary>Array of suggestion options. This creates a datalist element with options to represent permissible or recommended options available to choose from.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.Type">
+            <summary>Set Input types</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.ValidateOn">
+            <summary>Set event to call validator</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.Value">
+            <summary>Default value for an input element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.OnGcdsBlur">
+            <summary>Emitted when the input loses focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.OnGcdsChange">
+            <summary>Emitted when the input has changed.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.OnGcdsError">
+            <summary>Emitted when the input has a validation error.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.OnGcdsFocus">
+            <summary>Emitted when the input has focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.OnGcdsInput">
+            <summary>Emitted when the element has received input.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.OnGcdsSuggestionSelected">
+            <summary>Emitted when a suggestion is selected.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInput.OnGcdsValid">
+            <summary>Emitted when the input has a validation error.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsLabel">
+            <summary>
+            Label for form fields, providing accessibility and context for users.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLabel.HideLabel">
+            <summary>Specifies if the label is hidden or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLabel.Label">
+            <summary>Form field label</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLabel.LabelFor">
+            <summary>Defines the label's for attribute.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLabel.Required">
+            <summary>Specifies if a form field is required or not.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsLangToggle">
+            <summary>
+            The language toggle is a link to the same content in the other Official Language.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLangToggle.Href">
+            <summary>(required) The href attribute specifies the URL of the opposite language page</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLangToggle.OnGcdsBlur">
+            <summary>Emitted when the link loses focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLangToggle.OnGcdsClick">
+            <summary>Emitted when the link has been clicked. Contains the href in the event detail.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLangToggle.OnGcdsFocus">
+            <summary>Emitted when the link has focus.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsLink">
+            <summary>
+            A link is a navigational element that brings a person to a new page, website, file, or section on the current page.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLink.Display">
+            <summary>Sets the display behavior of the link</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLink.Download">
+            <summary>The download attribute specifies that the target (the file specified in the href attribute) will be downloaded when a user clicks on the hyperlink</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLink.External">
+            <summary>Whether the link is external or not</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLink.Href">
+            <summary>(required) The href attribute specifies the URL of the page the link goes to</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLink.LinkRole">
+            <summary>Sets the main style of the link.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLink.Rel">
+            <summary>The rel attribute specifies the relationship between the current document and the linked document</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLink.Size">
+            <summary>Set the link size</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLink.Target">
+            <summary>The target attribute specifies where to open the linked document</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLink.Type">
+            <summary>The type specifies the media type of the linked document</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLink.OnGcdsBlur">
+            <summary>Emitted when the link loses focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLink.OnGcdsClick">
+            <summary>Emitted when the link has been clicked. Contains the href in the event detail.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLink.OnGcdsFocus">
+            <summary>Emitted when the link has focus.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsNavGroup">
+            <summary>
+            Navigational group with expandable or dropdown functionality, allowing for better organization of navigation links.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNavGroup.CloseTrigger">
+            <summary>Label for the expanded button trigger</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNavGroup.MenuLabel">
+            <summary>(required) Label for the nav group menu</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNavGroup.Open">
+            <summary>Has the nav group been expanded</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNavGroup.OpenTrigger">
+            <summary>(required) Label for the collapsed button trigger</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNavGroup.OnGcdsBlur">
+            <summary>Emitted when the button blurs.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNavGroup.OnGcdsClick">
+            <summary>Emitted when the button has been clicked.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNavGroup.OnGcdsFocus">
+            <summary>Emitted when the button has been focus.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsNavLink">
+            <summary>
+            Navigation link within a navigation group or menu, allowing users to navigate to different sections of a website or application.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNavLink.Current">
+            <summary>Current page flag</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNavLink.Href">
+            <summary>(required) Link href</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNavLink.OnGcdsBlur">
+            <summary>Emitted when the link loses focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNavLink.OnGcdsClick">
+            <summary>Emitted when the link has been clicked.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNavLink.OnGcdsFocus">
+            <summary>Emitted when the link has focus.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsNotice">
+            <summary>
+            The notice is a short, prominent message that’s part of the page content.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNotice.NoticeRole">
+            <summary>(required) The notice role property specifies the style of notice to be displayed.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNotice.NoticeTitle">
+            <summary>(required) Set the notice title.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNotice.NoticeTitleTag">
+            <summary>(required) The notice title tag property specifies the HTML heading element for the title. This property does not modify the font size. It is used to assign the heading level in order to maintain heading hierarchy and accessibility for assistive technologies.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsPagination">
+            <summary>
+            Pagination is a division of content into multiple linked pages.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsPagination.CurrentPage">
+            <summary>List display - Current page number</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsPagination.Display">
+            <summary>Determines the pagination display style.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsPagination.Label">
+            <summary>(required) Navigation element label</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsPagination.NextHref">
+            <summary>Simple display - href for next link</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsPagination.NextLabel">
+            <summary>Simple display - lable for next link</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsPagination.PreviousHref">
+            <summary>Simple display - href for previous link</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsPagination.PreviousLabel">
+            <summary>Simple display - label for previous link</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsPagination.TotalPages">
+            <summary>List display - Total number of pages</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsPagination.Url">
+            <summary>List display - URL object to create query strings and fragment on links</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsPagination.OnGcdsBlur">
+            <summary>Emitted when the link loses focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsPagination.OnGcdsClick">
+            <summary>Emitted when the link has been clicked. Contains the href in event detail when using simple display, or an object with page and href when using list display.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsPagination.OnGcdsFocus">
+            <summary>Emitted when the link has focus.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsRadios">
+            <summary>
+            Radios provide a set of options for a single response.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadios.Autofocus">
+            <summary>If true, the input will be focused on component render</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadios.Disabled">
+            <summary>Specifies if an input element is disabled or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadios.ErrorMessage">
+            <summary>Set this to display an error message for invalid radios</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadios.Form">
+            <summary>The ID of the form that the radios belong to.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadios.HideLegend">
+            <summary>Specifies if the legend is hidden or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadios.Hint">
+            <summary>Hint displayed below the label and above the radio elements</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadios.Legend">
+            <summary>(required) Label or legend for the group of radio elements</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadios.Name">
+            <summary>(required) The `name` attribute for the radios, used to group radio elements together</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadios.Options">
+            <summary>(required) Options to render radio buttons</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadios.Required">
+            <summary>Specifies if a form field is required or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadios.ValidateOn">
+            <summary>Set event to call validator</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadios.Value">
+            <summary>Default value for the element</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadios.OnGcdsBlur">
+            <summary>Emitted when the radios has lost focus</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadios.OnGcdsChange">
+            <summary>Emitted when a radios option is checked (but not when unchecked). Contains new value in event detail</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadios.OnGcdsError">
+            <summary>Emitted when radios has a validation error</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadios.OnGcdsFocus">
+            <summary>Emitted when radios has received focus</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadios.OnGcdsInput">
+            <summary>Emitted when radios has been changed as a direct result of a user action (a radio option has been selected). Contains new value in event detail</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadios.OnGcdsValid">
+            <summary>Emitted when radios has passed validation</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsSearch">
+            <summary>
+            Search is a space for entering keywords to find relevant information.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSearch.Action">
+            <summary>Sets the action for the search form. Default will be canada.ca global search</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSearch.Method">
+            <summary>Set the form method of the search form</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSearch.Name">
+            <summary>Set the name of the search input</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSearch.Placeholder">
+            <summary>Set the placeholder and label for the search input. Becomes "Search [placeholder]"</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSearch.SearchId">
+            <summary>Set the id of the search input</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSearch.Suggested">
+            <summary>Set a list of predefined search terms</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSearch.Value">
+            <summary>Set the value of the search input</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSearch.OnGcdsBlur">
+            <summary>Emitted when the search input has lost focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSearch.OnGcdsChange">
+            <summary>Emitted when the search input value has changed.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSearch.OnGcdsFocus">
+            <summary>Emitted when the search input has gained focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSearch.OnGcdsInput">
+            <summary>Emitted when the search element has received input.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSearch.OnGcdsSubmit">
+            <summary>Emitted when the search form has submitted.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsSelect">
+            <summary>
+            A select provides a large list of options for single selection.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelect.Autocomplete">
+            <summary>String to have autocomplete enabled.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelect.Autofocus">
+            <summary>If true, the select will be focused on component render</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelect.DefaultValue">
+            <summary>The default value is an optional value that gets displayed before the user selects an option.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelect.Disabled">
+            <summary>Specifies if a select element is disabled or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelect.ErrorMessage">
+            <summary>Error message for an invalid select element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelect.Form">
+            <summary>The ID of the form that the select field belongs to.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelect.HideLabel">
+            <summary>Specifies if the label is hidden or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelect.Hint">
+            <summary>Hint displayed below the label.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelect.Label">
+            <summary>(required) Form field label.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelect.Name">
+            <summary>(required) Name attribute for select form element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelect.Required">
+            <summary>Specifies if a form field is required or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelect.SelectId">
+            <summary>(required) Id attribute for a select element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelect.ValidateOn">
+            <summary>Set event to call validator</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelect.Value">
+            <summary>Value for a select element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelect.OnGcdsBlur">
+            <summary>Emitted when the select loses focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelect.OnGcdsChange">
+            <summary>Emitted when the select value has changed.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelect.OnGcdsError">
+            <summary>Emitted when the select has a validation error.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelect.OnGcdsFocus">
+            <summary>Emitted when the select has focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelect.OnGcdsInput">
+            <summary>Emitted when the select has received input.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelect.OnGcdsValid">
+            <summary>Emitted when the select has a validation error.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsSideNav">
+            <summary>
+            A side navigation is a vertical list of page links on the left side of the screen.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSideNav.Label">
+            <summary>(required) Label for navigation landmark</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsSignature">
+            <summary>
+            The signature is the Government of Canada landmark identifier found in the header or footer.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSignature.HasLink">
+            <summary>Has link to canada.ca. Only applies to signature</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSignature.Type">
+            <summary>The type of graphic to render</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSignature.Variant">
+            <summary>The colour variant to render</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsSrOnly">
+            <summary>
+            The screenreader-only component is text information only accessible with assistive technologies.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSrOnly.Tag">
+            <summary>Sets the appropriate HTML tag for the content.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsStepper">
+            <summary>
+            A stepper is a progress tracker for a multi-step process.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsStepper.CurrentStep">
+            <summary>(required) Defines the current step.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsStepper.Tag">
+            <summary>Defines the heading tag to render</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsStepper.TotalSteps">
+            <summary>(required) Defines the total amount of steps.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsText">
+            <summary>
+            Text is a styled and formatted paragraph that displays written content in an accessible way and matches Canada.ca typography styles.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsText.CharacterLimit">
+            <summary>Sets the line length to a maximum amount of characters per line to ensure a comfortable, accessible reading length.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsText.Display">
+            <summary>Specifies the display behaviour of the text.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsText.MarginBottom">
+            <summary>Adds margin below the text.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsText.MarginTop">
+            <summary>Adds margin above the text.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsText.Size">
+            <summary>Sets the appropriate HTML tags for the selected size.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsText.TextRole">
+            <summary>Sets the main style of the text.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsTextarea">
+            <summary>
+            A text area is a space to enter long-form information in response to a question or instruction.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.Autofocus">
+            <summary>If true, the textarea will be focused on component render.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.Cols">
+            <summary>Defines width for textarea cols (the min-width for textarea's is 50%).</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.Disabled">
+            <summary>Specifies if a textarea element is disabled or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.ErrorMessage">
+            <summary>Error message for an invalid textarea element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.Form">
+            <summary>The ID of the form that the textarea belongs to.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.HideLabel">
+            <summary>Specifies if the label is hidden or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.HideLimit">
+            <summary>If true, character limit counter will not be displayed under the textarea.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.Hint">
+            <summary>Hint displayed below the label and above the textarea field.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.Label">
+            <summary>(required) Form field label</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.Maxlength">
+            <summary>The maximum number of characters that the textarea field can accept.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.Minlength">
+            <summary>The minimum number of characters that the textarea field can accept.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.Name">
+            <summary>(required) Name attribute for a textarea element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.Required">
+            <summary>Specifies if a form field is required or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.Rows">
+            <summary>Default value for textarea rows.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.TextareaId">
+            <summary>(required) Id attribute for a textarea element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.ValidateOn">
+            <summary>Set event to call validator</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.Value">
+            <summary>Default value for an input element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.OnGcdsBlur">
+            <summary>Emitted when the textarea loses focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.OnGcdsChange">
+            <summary>Emitted when the textarea has changed.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.OnGcdsError">
+            <summary>Emitted when the textarea has a validation error.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.OnGcdsFocus">
+            <summary>Emitted when the textarea has focus.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.OnGcdsInput">
+            <summary>Emitted when the textarea has received input.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextarea.OnGcdsValid">
+            <summary>Emitted when the textarea has a validation error.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsTopicMenu">
+            <summary>
+            The theme and topic menu is a navigation to the top tasks of Government of Canada websites.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTopicMenu.Home">
+            <summary>Sets the homepage styling</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsTopNav">
+            <summary>
+            A top navigation is a horizontal list of page links.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTopNav.Alignment">
+            <summary>Nav alignment</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTopNav.Label">
+            <summary>(required) Label for navigation landmark</summary>
+        </member>
+        <member name="M:GcdsCore.Components.GeneratedComponentBase.RenderOnOffAttribute(System.String,System.Nullable{System.Boolean},System.String)">
+            <summary>
+            Writes a boolean attribute that the element defaults to on, so false has to be stated
+            explicitly: omitting the attribute would leave the element's own default in place.
+            True is written as bare presence, which every boolean attribute reads as on.
+            </summary>
+            <param name="name">The attribute name.</param>
+            <param name="value">The parameter value, or null to leave the attribute to the element.</param>
+            <param name="offValue">Attribute text that the element reads as false.</param>
+        </member>
+        <member name="M:GcdsCore.Components.GeneratedComponentBase.RenderJsonAttribute(System.String,System.Object,System.String)">
+            <summary>
+            Writes a collection-valued attribute as JSON. A collection's ToString yields the CLR type
+            name rather than its contents, so it is serialized instead.
+            </summary>
+            <param name="name">The attribute name.</param>
+            <param name="value">The collection, or null to leave the attribute to the element.</param>
+            <param name="defaultValue">Attribute text to restore once the attribute has been written.</param>
+        </member>
+        <member name="F:GcdsCore.Components.GeneratedInputBase`1._valueExpressionAnchor">
+            <summary>
+            Placeholder target for the fallback <see cref="!:ValueExpression"/>. Blazor only supplies
+            that expression for bind-Value, and FieldIdentifier.Create rejects constant expressions,
+            so the fallback has to point at a real member.
+            </summary>
+        </member>
+        <member name="M:GcdsCore.Components.GeneratedInputBase`1.#ctor">
+            <summary>
+            InputBase throws unless ValueExpression is set, so a consumer that passes Value or
+            ValueChanged without bind-Value would otherwise fail to render. Blazor overwrites this
+            with the real expression whenever bind-Value is used.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GeneratedInputBase`1.Immediate">
+            <summary>
+            Binds the value on every keystroke (the input event) instead of only when the change is
+            committed (the change event, typically on blur), so the model stays current while the user
+            types. Generated components only expose it when the element declares both events.
+            </summary>
+        </member>
+        <member name="M:GcdsCore.Components.GeneratedInputBase`1.RenderOnOffAttribute(System.String,System.Nullable{System.Boolean},System.String)">
+            <summary>
+            Writes a boolean attribute that the element defaults to on, so false has to be stated
+            explicitly: omitting the attribute would leave the element's own default in place.
+            True is written as bare presence, which every boolean attribute reads as on.
+            </summary>
+            <param name="name">The attribute name.</param>
+            <param name="value">The parameter value, or null to leave the attribute to the element.</param>
+            <param name="offValue">Attribute text that the element reads as false.</param>
+        </member>
+        <member name="M:GcdsCore.Components.GeneratedInputBase`1.RenderJsonAttribute(System.String,System.Object,System.String)">
+            <summary>
+            Writes a collection-valued attribute as JSON. A collection's ToString yields the CLR type
+            name rather than its contents, so it is serialized instead.
+            </summary>
+            <param name="name">The attribute name.</param>
+            <param name="value">The collection, or null to leave the attribute to the element.</param>
+            <param name="defaultValue">Attribute text to restore once the attribute has been written.</param>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsAlertTagHelper">
+            <summary>
+            Alert displays an alert message with an optional heading, icon, and close button.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsAlertTagHelper.AlertRole">
+            <summary>Defines alert role.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsAlertTagHelper.Container">
+            <summary>Defines the max width of the alert content.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsAlertTagHelper.Heading">
+            <summary>(required) Defines the alert heading.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsAlertTagHelper.HideCloseBtn">
+            <summary>Defines if the alert's close button is displayed or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsAlertTagHelper.HideRoleIcon">
+            <summary>Defines if the alert's role icon is displayed or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsAlertTagHelper.IsFixed">
+            <summary>Defines if the alert's position is fixed.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsBreadcrumbsItemTagHelper">
+            <summary>
+            Breadcrumbs item represents a single link in the breadcrumbs navigation.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsBreadcrumbsItemTagHelper.Href">
+            <summary>(required) Specifies the href of the breadcrumb item.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsBreadcrumbsTagHelper">
+            <summary>
+            Breadcrumbs is a path to the current page from each preceding level of the site's hierarchy.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsBreadcrumbsTagHelper.HideCanadaLink">
+            <summary>Defines if the default canada.ca link is displayed or omitted.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsButtonTagHelper">
+            <summary>
+            The button is an interactive object that emphasizes an action.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButtonTagHelper.ButtonId">
+            <summary>The buttonId attribute specifies the id for a &lt;button&gt; element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButtonTagHelper.ButtonRole">
+            <summary>Set the main style</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButtonTagHelper.Disabled">
+            <summary>The disabled attribute for a &lt;button&gt; element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButtonTagHelper.Download">
+            <summary>The download attribute specifies that the target (the file specified in the href attribute) will be downloaded when a user clicks on the hyperlink</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButtonTagHelper.Href">
+            <summary>The href attribute specifies the URL of the page the link goes to</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButtonTagHelper.Name">
+            <summary>The name attribute specifies the name for a &lt;button&gt; element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButtonTagHelper.Rel">
+            <summary>The rel attribute specifies the relationship between the current document and the linked document</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButtonTagHelper.Size">
+            <summary>Set the button size</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButtonTagHelper.Target">
+            <summary>The target attribute specifies where to open the linked document</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButtonTagHelper.Type">
+            <summary>Set button types</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsButtonTagHelper.Value">
+            <summary>The value attribute specifies the value for a &lt;button&gt; element.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsCardTagHelper">
+            <summary>
+            A card is a box containing structured, actionable content on a single topic.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCardTagHelper.Badge">
+            <summary>The badge attribute specifies the badge text that appears in the top left corner of the card. 20 character limit.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCardTagHelper.CardTitle">
+            <summary>(required) The card title attribute specifies the title that appears on the card</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCardTagHelper.CardTitleTag">
+            <summary>The card title tag property specifies the HTML heading element for the title. This property does not modify the font size. It is used to assign the heading level in order to maintain heading hierarchy and accessibility for assistive technologies.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCardTagHelper.Description">
+            <summary>The description attribute specifies the body of text that appears on the card</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCardTagHelper.Href">
+            <summary>(required) The href attribute specifies the URL of the page the link goes to</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCardTagHelper.ImgAlt">
+            <summary>The img alt attribute specifies the alt text for the image provided, if none, image will be decorative</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCardTagHelper.ImgSrc">
+            <summary>The img src attribute specifies the path to the image</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCardTagHelper.Rel">
+            <summary>The rel attribute specifies the relationship between the current document and the linked document</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCardTagHelper.Target">
+            <summary>The target attribute specifies where to open the linked document</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsCheckboxesTagHelper">
+            <summary>
+            Checkboxes provide a set of options for multiple responses.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxesTagHelper.Autofocus">
+            <summary>If true, the checkbox will be focused on component render</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxesTagHelper.Disabled">
+            <summary>Specifies if the checkboxes are disabled or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxesTagHelper.ErrorMessage">
+            <summary>Set this to display an error message for invalid &lt;gcds-checkboxes&gt;</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxesTagHelper.Form">
+            <summary>The ID of the form that the checkboxes belong to.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxesTagHelper.HideLabel">
+            <summary>For single checkbox, specifies if the label is hidden or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxesTagHelper.HideLegend">
+            <summary>For checkbox groups, specifies if the legend is hidden or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxesTagHelper.Hint">
+            <summary>Hint displayed below the label.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxesTagHelper.Legend">
+            <summary>Set the legend for fieldset form group.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxesTagHelper.Name">
+            <summary>(required) Name attribute for a checkboxes element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxesTagHelper.Options">
+            <summary>(required) Options to render checkboxes buttons</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxesTagHelper.Required">
+            <summary>Specifies if the checkboxes are required or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxesTagHelper.ValidateOn">
+            <summary>Set event to call validator</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsCheckboxesTagHelper.Value">
+            <summary>Value for checkboxes component.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsContainerTagHelper">
+            <summary>
+            A container is a basic box layout with a set width for its contents.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsContainerTagHelper.Alignment">
+            <summary>Defines the container's alignment. This property is ignored when `layout` is set to `page`, as the page layout has higher priority.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsContainerTagHelper.Border">
+            <summary>Defines if the container has a border.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsContainerTagHelper.Layout">
+            <summary>Controls how the container aligns with the page layout. When set to `page`, the container uses a max width of 1140px and switches to 90% width on smaller screens to scale consistently with core page layout components such as the header and footer. When set to `full`, the container spans the full width (100%) of its parent.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsContainerTagHelper.Margin">
+            <summary>Container margin. Horizontal margins (left and right) are not applied if the container’s alignment property is defined, since alignment has higher priority.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsContainerTagHelper.Padding">
+            <summary>Defines the container's padding.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsContainerTagHelper.Size">
+            <summary>Defines container size.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsContainerTagHelper.Tag">
+            <summary>Set tag for container.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsDateInputTagHelper">
+            <summary>
+            A date input is a space to enter a known date.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInputTagHelper.Autocomplete">
+            <summary>String to have autocomplete enabled.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInputTagHelper.Autofocus">
+            <summary>If true, the date-input will be focused on component render</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInputTagHelper.Disabled">
+            <summary>Specifies if the date input is disabled or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInputTagHelper.ErrorMessage">
+            <summary>Error message displayed below the legend and above form fields.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInputTagHelper.Form">
+            <summary>The ID of the form that the date-input field belongs to.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInputTagHelper.Format">
+            <summary>(required) Set this property to full to show month, day, and year form elements. Set it to compact to show only the month and year form elements. Set it to `iso` to use numeric month input and `YYYY-MM-DD` entry order.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInputTagHelper.Hint">
+            <summary>Hint displayed below the legend and above form fields.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInputTagHelper.Legend">
+            <summary>(required) Fieldset legend</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInputTagHelper.Max">
+            <summary>The maximum date that the date-input field can accept. Format: YYYY-MM-DD or YYYY-MM</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInputTagHelper.Min">
+            <summary>The minimum date that the date-input field can accept. Format: YYYY-MM-DD or YYYY-MM</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInputTagHelper.Name">
+            <summary>(required) Name attribute for the date input.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInputTagHelper.Required">
+            <summary>Specifies if a form field is required or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInputTagHelper.ValidateOn">
+            <summary>Set event to call validator</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateInputTagHelper.Value">
+            <summary>Combined date value from the two/three form elements. Format: YYYY-MM-DD or YYYY-MM</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsDateModifiedTagHelper">
+            <summary>
+            Date modified is an indicator of the last update to a webpage or application.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDateModifiedTagHelper.Type">
+            <summary>Set date modified type. Default is date.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsDetailsTagHelper">
+            <summary>
+            Details is an interactive switch for a person to expand or collapse content.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDetailsTagHelper.DetailsTitle">
+            <summary>(required) The details title summarizes the panel content.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsDetailsTagHelper.Open">
+            <summary>Defines if the details panel is open by default or not.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsErrorMessageTagHelper">
+            <summary>
+            An error message is a description of a problem blocking a user goal.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsErrorMessageTagHelper.MessageId">
+            <summary>(required) Id attribute for the error message.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsErrorSummaryTagHelper">
+            <summary>
+            An error summary is a list of user errors in a form.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsErrorSummaryTagHelper.ErrorLinks">
+            <summary>Object of list items for error list. Format: { link-href: link-label }</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsErrorSummaryTagHelper.Heading">
+            <summary>Set error summary heading</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsErrorSummaryTagHelper.Listen">
+            <summary>Specifies if the error summary should listen for GcdsError event to generate error list.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsFieldsetTagHelper">
+            <summary>
+            A fieldset is a group of multiple form components or elements.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFieldsetTagHelper.Hint">
+            <summary>Hint displayed below the legend.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFieldsetTagHelper.Legend">
+            <summary>(required) The title for the contents of the fieldset</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFieldsetTagHelper.LegendSize">
+            <summary>(required) Sets the appropriate font size for the fieldset legend.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsFileUploaderTagHelper">
+            <summary>
+            A file uploader is a space to select and add supporting documentation.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploaderTagHelper.Accept">
+            <summary>Defines the file types the file uploader accepts.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploaderTagHelper.Autofocus">
+            <summary>If true, the file uploader will be focused on component render</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploaderTagHelper.Disabled">
+            <summary>Specifies if a file uploader element is disabled or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploaderTagHelper.ErrorMessage">
+            <summary>Error message for an invalid file uploader element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploaderTagHelper.Form">
+            <summary>The ID of the form that the file uploader field belongs to.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploaderTagHelper.HideLabel">
+            <summary>Specifies if the label is hidden or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploaderTagHelper.Hint">
+            <summary>Hint displayed below the label.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploaderTagHelper.Label">
+            <summary>(required) Form field label.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploaderTagHelper.Multiple">
+            <summary>Boolean that specifies if the user is allowed to select more than one file.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploaderTagHelper.Name">
+            <summary>(required) Name attribute for file input element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploaderTagHelper.Required">
+            <summary>Specifies if a form field is required or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploaderTagHelper.UploaderId">
+            <summary>(required) Id attribute for a file uploader element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFileUploaderTagHelper.ValidateOn">
+            <summary>Set event to call validator</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsFooterTagHelper">
+            <summary>
+            The footer is the responsive Government of Canada branded footer landmark.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFooterTagHelper.ContextualHeading">
+            <summary>Heading for contextual slot and nav landmark</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFooterTagHelper.ContextualLinks">
+            <summary>Object of list items for contextual band. Format: { link-label: link-href }</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFooterTagHelper.Display">
+            <summary>Display mode of the footer</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsFooterTagHelper.SubLinks">
+            <summary>Object of list items for sub-footer. Format: { link-label: link-href }</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsGridColTagHelper">
+            <summary>
+            A grid column is a single column in a grid layout, allowing for flexible content arrangement.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridColTagHelper.Desktop">
+            <summary>Optimize grid column size for desktop (1024px and above). Desktop grid column sizes are based on a 12 column grid.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridColTagHelper.Tablet">
+            <summary>Optimize grid column size for tablet (768px - 1023px). Tablet grid column sizes are based on a 6 column grid. The tablet size will also be used for desktop, if desktop is undefined.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridColTagHelper.Tag">
+            <summary>Set tag for grid column</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsGridTagHelper">
+            <summary>
+            A grid is a responsive, flexible column layout to position elements on a page.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridTagHelper.AlignContent">
+            <summary>If total grid size is less than the size of its grid container, this property aligns the grid along the block (column) axis</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridTagHelper.AlignItems">
+            <summary>Aligns grid items along the block (column) axis</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridTagHelper.Alignment">
+            <summary>Defines the grid's alignment if the grid containers size is smaller than the parent's size.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridTagHelper.Columns">
+            <summary>Defines the default number of grid columns for all viewports if columns-tablet and columns-desktop are not defined. Option to set different layouts for desktop with columns-desktop and for tablet with columns-tablet.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridTagHelper.ColumnsDesktop">
+            <summary>Provides option to set a different number of grid columns for desktop screens.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridTagHelper.ColumnsTablet">
+            <summary>Provides option to set a different number of grid columns for tablet screens. If columns-desktop is not defined, columns-tablet will be used to define the number of columns for desktop as well.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridTagHelper.Container">
+            <summary>Defines grid container size</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridTagHelper.Display">
+            <summary>Defines element as grid or inline-grid container</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridTagHelper.EqualRowHeight">
+            <summary>Sets all grid items to have an equal height, based on the tallest item.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridTagHelper.Gap">
+            <summary>Defines the horizontal and vertical spacing between items in a grid container for all viewports if gap-tablet and gap-desktop are not defined. Option to set different spacing for desktop with gap-desktop and for tablet with gap-tablet.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridTagHelper.GapDesktop">
+            <summary>Provides option to set horizontal and vertical spacing between items in a grid container for desktop screens.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridTagHelper.GapTablet">
+            <summary>Provides option to set horizontal and vertical spacing between items in a grid container for tablet screens. If gap-desktop is not defined, gap-tablet will be used to define the spacing for desktop screens as well.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridTagHelper.JustifyContent">
+            <summary>If total grid size is less than the size of its grid container, this property aligns the grid along the inline (row) axis</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridTagHelper.JustifyItems">
+            <summary>Aligns grid items along the inline (row) axis</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridTagHelper.PlaceContent">
+            <summary>Sets both the align-content + justify-content properties</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridTagHelper.PlaceItems">
+            <summary>Sets both the align-items + justify-items properties</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsGridTagHelper.Tag">
+            <summary>Set tag for grid container</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsHeaderTagHelper">
+            <summary>
+            The header is the responsive Government of Canada branded header landmark.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsHeaderTagHelper.LangHref">
+            <summary>(required) GcdsLangToggle - The href attribute specifies the URL of the opposite language page</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsHeaderTagHelper.SignatureHasLink">
+            <summary>GcdsSignature - GCDS signature links to Canada.ca</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsHeaderTagHelper.SkipToHref">
+            <summary>(required) Top navigation - Skip to content href</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsHeadingTagHelper">
+            <summary>
+            A heading is a title that establishes levels of hierarchy to organize page content into a structure and matches Canada.ca typography styles.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsHeadingTagHelper.CharacterLimit">
+            <summary>Sets the line length to a maximum amount of characters per line for each heading level, ensuring a comfortable, accessible reading length.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsHeadingTagHelper.HeadingRole">
+            <summary>Sets the main style of the heading.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsHeadingTagHelper.MarginBottom">
+            <summary>Adds margin below the heading. The default margin-botttom is 300.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsHeadingTagHelper.MarginTop">
+            <summary>Adds margin above the heading. The default margin-top for h1 is set to 0, while for h2 to h6 headings, it's 600.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsHeadingTagHelper.Tag">
+            <summary>(required) Sets the appropriate HTML tag for the selected level.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsHintTagHelper">
+            <summary>
+            Hint provides additional information or context to help users understand the content or functionality of a related element.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsHintTagHelper.HintId">
+            <summary>Id attribute for the hint.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsIconTagHelper">
+            <summary>
+            An icon is a symbol that visually represents an action or idea.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsIconTagHelper.Label">
+            <summary>Add icon description.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsIconTagHelper.MarginLeft">
+            <summary>Add margin to the left of the icon</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsIconTagHelper.MarginRight">
+            <summary>Add margin to the right of the icon</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsIconTagHelper.Name">
+            <summary>(required) Name of the icon.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsIconTagHelper.Size">
+            <summary>Defines the size of the icon.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsInputTagHelper">
+            <summary>
+            An input is a space to enter short-form information in response to a question or instruction.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.Autocomplete">
+            <summary>String to have autocomplete enabled.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.Autofocus">
+            <summary>If true, the input will be focused on component render</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.Disabled">
+            <summary>Specifies if an input element is disabled or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.ErrorMessage">
+            <summary>Error message for an invalid input element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.Form">
+            <summary>The ID of the form that the input field belongs to.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.HideLabel">
+            <summary>Specifies if the label is hidden or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.Hint">
+            <summary>Hint displayed below the label and above the input field.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.InputId">
+            <summary>(required) Id attribute for an input element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.Inputmode">
+            <summary></summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.Label">
+            <summary>(required) Form field label</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.Max">
+            <summary>The maximum value that the input field can accept. Only applies to number input type.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.Maxlength">
+            <summary>The maximum number of characters that the input field can accept.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.Min">
+            <summary>The minimum value that the input field can accept. Only applies to number input type.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.Minlength">
+            <summary>The minimum number of characters that the input field can accept.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.Name">
+            <summary>(required) Name attribute for an input element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.Pattern">
+            <summary>Specifies a regular expression the form control's value should match. See: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/pattern</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.Readonly">
+            <summary>If true, the input field cannot be modified.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.Required">
+            <summary>Specifies if a form field is required or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.Size">
+            <summary>Size attribute for an input element to provide a visual indication of the expected text length to the user.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.Step">
+            <summary>A number that specifies the granularity that the value must adhere to. Valid for number type. See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#step</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.Suggestions">
+            <summary>Array of suggestion options. This creates a datalist element with options to represent permissible or recommended options available to choose from.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.Type">
+            <summary>Set Input types</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.ValidateOn">
+            <summary>Set event to call validator</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsInputTagHelper.Value">
+            <summary>Default value for an input element.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsLabelTagHelper">
+            <summary>
+            Label for form fields, providing accessibility and context for users.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLabelTagHelper.HideLabel">
+            <summary>Specifies if the label is hidden or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLabelTagHelper.Label">
+            <summary>Form field label</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLabelTagHelper.LabelFor">
+            <summary>Defines the label's for attribute.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLabelTagHelper.Required">
+            <summary>Specifies if a form field is required or not.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsLangToggleTagHelper">
+            <summary>
+            The language toggle is a link to the same content in the other Official Language.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLangToggleTagHelper.Href">
+            <summary>(required) The href attribute specifies the URL of the opposite language page</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsLinkTagHelper">
+            <summary>
+            A link is a navigational element that brings a person to a new page, website, file, or section on the current page.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLinkTagHelper.Display">
+            <summary>Sets the display behavior of the link</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLinkTagHelper.Download">
+            <summary>The download attribute specifies that the target (the file specified in the href attribute) will be downloaded when a user clicks on the hyperlink</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLinkTagHelper.External">
+            <summary>Whether the link is external or not</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLinkTagHelper.Href">
+            <summary>(required) The href attribute specifies the URL of the page the link goes to</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLinkTagHelper.LinkRole">
+            <summary>Sets the main style of the link.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLinkTagHelper.Rel">
+            <summary>The rel attribute specifies the relationship between the current document and the linked document</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLinkTagHelper.Size">
+            <summary>Set the link size</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLinkTagHelper.Target">
+            <summary>The target attribute specifies where to open the linked document</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsLinkTagHelper.Type">
+            <summary>The type specifies the media type of the linked document</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsNavGroupTagHelper">
+            <summary>
+            Navigational group with expandable or dropdown functionality, allowing for better organization of navigation links.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNavGroupTagHelper.CloseTrigger">
+            <summary>Label for the expanded button trigger</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNavGroupTagHelper.MenuLabel">
+            <summary>(required) Label for the nav group menu</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNavGroupTagHelper.Open">
+            <summary>Has the nav group been expanded</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNavGroupTagHelper.OpenTrigger">
+            <summary>(required) Label for the collapsed button trigger</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsNavLinkTagHelper">
+            <summary>
+            Navigation link within a navigation group or menu, allowing users to navigate to different sections of a website or application.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNavLinkTagHelper.Current">
+            <summary>Current page flag</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNavLinkTagHelper.Href">
+            <summary>(required) Link href</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsNoticeTagHelper">
+            <summary>
+            The notice is a short, prominent message that’s part of the page content.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNoticeTagHelper.NoticeRole">
+            <summary>(required) The notice role property specifies the style of notice to be displayed.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNoticeTagHelper.NoticeTitle">
+            <summary>(required) Set the notice title.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsNoticeTagHelper.NoticeTitleTag">
+            <summary>(required) The notice title tag property specifies the HTML heading element for the title. This property does not modify the font size. It is used to assign the heading level in order to maintain heading hierarchy and accessibility for assistive technologies.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsPaginationTagHelper">
+            <summary>
+            Pagination is a division of content into multiple linked pages.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsPaginationTagHelper.CurrentPage">
+            <summary>List display - Current page number</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsPaginationTagHelper.Display">
+            <summary>Determines the pagination display style.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsPaginationTagHelper.Label">
+            <summary>(required) Navigation element label</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsPaginationTagHelper.NextHref">
+            <summary>Simple display - href for next link</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsPaginationTagHelper.NextLabel">
+            <summary>Simple display - lable for next link</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsPaginationTagHelper.PreviousHref">
+            <summary>Simple display - href for previous link</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsPaginationTagHelper.PreviousLabel">
+            <summary>Simple display - label for previous link</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsPaginationTagHelper.TotalPages">
+            <summary>List display - Total number of pages</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsPaginationTagHelper.Url">
+            <summary>List display - URL object to create query strings and fragment on links</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsRadiosTagHelper">
+            <summary>
+            Radios provide a set of options for a single response.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadiosTagHelper.Autofocus">
+            <summary>If true, the input will be focused on component render</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadiosTagHelper.Disabled">
+            <summary>Specifies if an input element is disabled or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadiosTagHelper.ErrorMessage">
+            <summary>Set this to display an error message for invalid radios</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadiosTagHelper.Form">
+            <summary>The ID of the form that the radios belong to.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadiosTagHelper.HideLegend">
+            <summary>Specifies if the legend is hidden or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadiosTagHelper.Hint">
+            <summary>Hint displayed below the label and above the radio elements</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadiosTagHelper.Legend">
+            <summary>(required) Label or legend for the group of radio elements</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadiosTagHelper.Name">
+            <summary>(required) The `name` attribute for the radios, used to group radio elements together</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadiosTagHelper.Options">
+            <summary>(required) Options to render radio buttons</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadiosTagHelper.Required">
+            <summary>Specifies if a form field is required or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadiosTagHelper.ValidateOn">
+            <summary>Set event to call validator</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsRadiosTagHelper.Value">
+            <summary>Default value for the element</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsSearchTagHelper">
+            <summary>
+            Search is a space for entering keywords to find relevant information.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSearchTagHelper.Action">
+            <summary>Sets the action for the search form. Default will be canada.ca global search</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSearchTagHelper.Method">
+            <summary>Set the form method of the search form</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSearchTagHelper.Name">
+            <summary>Set the name of the search input</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSearchTagHelper.Placeholder">
+            <summary>Set the placeholder and label for the search input. Becomes "Search [placeholder]"</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSearchTagHelper.SearchId">
+            <summary>Set the id of the search input</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSearchTagHelper.Suggested">
+            <summary>Set a list of predefined search terms</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSearchTagHelper.Value">
+            <summary>Set the value of the search input</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsSelectTagHelper">
+            <summary>
+            A select provides a large list of options for single selection.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelectTagHelper.Autocomplete">
+            <summary>String to have autocomplete enabled.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelectTagHelper.Autofocus">
+            <summary>If true, the select will be focused on component render</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelectTagHelper.DefaultValue">
+            <summary>The default value is an optional value that gets displayed before the user selects an option.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelectTagHelper.Disabled">
+            <summary>Specifies if a select element is disabled or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelectTagHelper.ErrorMessage">
+            <summary>Error message for an invalid select element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelectTagHelper.Form">
+            <summary>The ID of the form that the select field belongs to.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelectTagHelper.HideLabel">
+            <summary>Specifies if the label is hidden or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelectTagHelper.Hint">
+            <summary>Hint displayed below the label.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelectTagHelper.Label">
+            <summary>(required) Form field label.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelectTagHelper.Name">
+            <summary>(required) Name attribute for select form element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelectTagHelper.Required">
+            <summary>Specifies if a form field is required or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelectTagHelper.SelectId">
+            <summary>(required) Id attribute for a select element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelectTagHelper.ValidateOn">
+            <summary>Set event to call validator</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSelectTagHelper.Value">
+            <summary>Value for a select element.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsSideNavTagHelper">
+            <summary>
+            A side navigation is a vertical list of page links on the left side of the screen.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSideNavTagHelper.Label">
+            <summary>(required) Label for navigation landmark</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsSignatureTagHelper">
+            <summary>
+            The signature is the Government of Canada landmark identifier found in the header or footer.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSignatureTagHelper.HasLink">
+            <summary>Has link to canada.ca. Only applies to signature</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSignatureTagHelper.Type">
+            <summary>The type of graphic to render</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSignatureTagHelper.Variant">
+            <summary>The colour variant to render</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsSrOnlyTagHelper">
+            <summary>
+            The screenreader-only component is text information only accessible with assistive technologies.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsSrOnlyTagHelper.Tag">
+            <summary>Sets the appropriate HTML tag for the content.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsStepperTagHelper">
+            <summary>
+            A stepper is a progress tracker for a multi-step process.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsStepperTagHelper.CurrentStep">
+            <summary>(required) Defines the current step.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsStepperTagHelper.Tag">
+            <summary>Defines the heading tag to render</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsStepperTagHelper.TotalSteps">
+            <summary>(required) Defines the total amount of steps.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsTextareaTagHelper">
+            <summary>
+            A text area is a space to enter long-form information in response to a question or instruction.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextareaTagHelper.Autofocus">
+            <summary>If true, the textarea will be focused on component render.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextareaTagHelper.Cols">
+            <summary>Defines width for textarea cols (the min-width for textarea's is 50%).</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextareaTagHelper.Disabled">
+            <summary>Specifies if a textarea element is disabled or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextareaTagHelper.ErrorMessage">
+            <summary>Error message for an invalid textarea element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextareaTagHelper.Form">
+            <summary>The ID of the form that the textarea belongs to.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextareaTagHelper.HideLabel">
+            <summary>Specifies if the label is hidden or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextareaTagHelper.HideLimit">
+            <summary>If true, character limit counter will not be displayed under the textarea.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextareaTagHelper.Hint">
+            <summary>Hint displayed below the label and above the textarea field.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextareaTagHelper.Label">
+            <summary>(required) Form field label</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextareaTagHelper.Maxlength">
+            <summary>The maximum number of characters that the textarea field can accept.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextareaTagHelper.Minlength">
+            <summary>The minimum number of characters that the textarea field can accept.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextareaTagHelper.Name">
+            <summary>(required) Name attribute for a textarea element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextareaTagHelper.Required">
+            <summary>Specifies if a form field is required or not.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextareaTagHelper.Rows">
+            <summary>Default value for textarea rows.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextareaTagHelper.TextareaId">
+            <summary>(required) Id attribute for a textarea element.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextareaTagHelper.ValidateOn">
+            <summary>Set event to call validator</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextareaTagHelper.Value">
+            <summary>Default value for an input element.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsTextTagHelper">
+            <summary>
+            Text is a styled and formatted paragraph that displays written content in an accessible way and matches Canada.ca typography styles.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextTagHelper.CharacterLimit">
+            <summary>Sets the line length to a maximum amount of characters per line to ensure a comfortable, accessible reading length.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextTagHelper.Display">
+            <summary>Specifies the display behaviour of the text.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextTagHelper.MarginBottom">
+            <summary>Adds margin below the text.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextTagHelper.MarginTop">
+            <summary>Adds margin above the text.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextTagHelper.Size">
+            <summary>Sets the appropriate HTML tags for the selected size.</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTextTagHelper.TextRole">
+            <summary>Sets the main style of the text.</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsTopicMenuTagHelper">
+            <summary>
+            The theme and topic menu is a navigation to the top tasks of Government of Canada websites.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTopicMenuTagHelper.Home">
+            <summary>Sets the homepage styling</summary>
+        </member>
+        <member name="T:GcdsCore.Components.GcdsTopNavTagHelper">
+            <summary>
+            A top navigation is a horizontal list of page links.
+            </summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTopNavTagHelper.Alignment">
+            <summary>Nav alignment</summary>
+        </member>
+        <member name="P:GcdsCore.Components.GcdsTopNavTagHelper.Label">
+            <summary>(required) Label for navigation landmark</summary>
+        </member>
+    </members>
+</doc>

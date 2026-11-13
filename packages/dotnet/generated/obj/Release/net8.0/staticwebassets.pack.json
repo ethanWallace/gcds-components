@@ -1,0 +1,61 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/wwwroot/customElementInterop.js",
+      "PackagePath": "staticwebassets/customElementInterop.js"
+    },
+    {
+      "Id": "/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/wwwroot/gcds/gcds.css",
+      "PackagePath": "staticwebassets/gcds/gcds.css"
+    },
+    {
+      "Id": "/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/wwwroot/gcds/gcds.esm.js",
+      "PackagePath": "staticwebassets/gcds/gcds.esm.js"
+    },
+    {
+      "Id": "/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/wwwroot/gcds/index.esm.js",
+      "PackagePath": "staticwebassets/gcds/index.esm.js"
+    },
+    {
+      "Id": "/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/wwwroot/gcds/p-4f9cee47.entry.js",
+      "PackagePath": "staticwebassets/gcds/p-4f9cee47.entry.js"
+    },
+    {
+      "Id": "/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/wwwroot/gcds/p-5141cfa2.entry.js",
+      "PackagePath": "staticwebassets/gcds/p-5141cfa2.entry.js"
+    },
+    {
+      "Id": "/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/wwwroot/gcds/p-Bsv67kBu.js",
+      "PackagePath": "staticwebassets/gcds/p-Bsv67kBu.js"
+    },
+    {
+      "Id": "/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/wwwroot/gcds/p-DQuL1Twl.js",
+      "PackagePath": "staticwebassets/gcds/p-DQuL1Twl.js"
+    },
+    {
+      "Id": "/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/wwwroot/gcds/p-QyNoo6LI.js",
+      "PackagePath": "staticwebassets/gcds/p-QyNoo6LI.js"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.GcdsCore.Components.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build/Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.GcdsCore.Components.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build/Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.build.GcdsCore.Components.props",
+      "PackagePath": "build/GcdsCore.Components.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.buildMultiTargeting.GcdsCore.Components.props",
+      "PackagePath": "buildMultiTargeting\\GcdsCore.Components.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.buildTransitive.GcdsCore.Components.props",
+      "PackagePath": "buildTransitive\\GcdsCore.Components.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

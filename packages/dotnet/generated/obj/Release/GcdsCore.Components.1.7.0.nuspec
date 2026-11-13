@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>GcdsCore.Components</id>
+    <version>1.7.0</version>
+    <authors>GcdsCore</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <description>ASP.NET Tag Helpers and Blazor components for GC Design System</description>
+    <repository type="git" url="https://github.com/cds-snc/gcds-components" commit="367c1c744f1f43c36a237113df71b7514fc02112" />
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="Microsoft.AspNetCore.Components.Web" version="8.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Razor.Runtime" version="2.2.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/bin/Release/net8.0/GcdsCore.Components.dll" target="lib/net8.0/GcdsCore.Components.dll" />
+    <file src="/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/bin/Release/net8.0/GcdsCore.Components.xml" target="lib/net8.0/GcdsCore.Components.xml" />
+    <file src="/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/wwwroot/customElementInterop.js" target="staticwebassets/customElementInterop.js" />
+    <file src="/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/wwwroot/gcds/gcds.css" target="staticwebassets/gcds/gcds.css" />
+    <file src="/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/wwwroot/gcds/gcds.esm.js" target="staticwebassets/gcds/gcds.esm.js" />
+    <file src="/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/wwwroot/gcds/index.esm.js" target="staticwebassets/gcds/index.esm.js" />
+    <file src="/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/wwwroot/gcds/p-4f9cee47.entry.js" target="staticwebassets/gcds/p-4f9cee47.entry.js" />
+    <file src="/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/wwwroot/gcds/p-5141cfa2.entry.js" target="staticwebassets/gcds/p-5141cfa2.entry.js" />
+    <file src="/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/wwwroot/gcds/p-Bsv67kBu.js" target="staticwebassets/gcds/p-Bsv67kBu.js" />
+    <file src="/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/wwwroot/gcds/p-DQuL1Twl.js" target="staticwebassets/gcds/p-DQuL1Twl.js" />
+    <file src="/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/wwwroot/gcds/p-QyNoo6LI.js" target="staticwebassets/gcds/p-QyNoo6LI.js" />
+    <file src="/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/obj/Release/net8.0/staticwebassets/msbuild.GcdsCore.Components.Microsoft.AspNetCore.StaticWebAssetEndpoints.props" target="build/Microsoft.AspNetCore.StaticWebAssetEndpoints.props" />
+    <file src="/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/obj/Release/net8.0/staticwebassets/msbuild.GcdsCore.Components.Microsoft.AspNetCore.StaticWebAssets.props" target="build/Microsoft.AspNetCore.StaticWebAssets.props" />
+    <file src="/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/obj/Release/net8.0/staticwebassets/msbuild.build.GcdsCore.Components.props" target="build/GcdsCore.Components.props" />
+    <file src="/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/obj/Release/net8.0/staticwebassets/msbuild.buildMultiTargeting.GcdsCore.Components.props" target="buildMultiTargeting/GcdsCore.Components.props" />
+    <file src="/Users/ethanwallace/Documents/personal-repo/gcds-components/packages/dotnet/generated/obj/Release/net8.0/staticwebassets/msbuild.buildTransitive.GcdsCore.Components.props" target="buildTransitive/GcdsCore.Components.props" />
+  </files>
+</package>

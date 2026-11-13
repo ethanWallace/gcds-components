@@ -1,0 +1,10 @@
+@* Generated from Custom Elements Manifest — do not edit directly *@
+@inherits GeneratedComponentBase
+<gcds-top-nav @ref="Element" @attributes="AdditionalAttributes" class="@GetCssClass()" style="@GetStyle()" alignment="@RenderAttribute("alignment", GeneratedTypeConversions.ToAttributeValue(Alignment), "'start'")" label="@Label">
+    @ChildContent
+
+    @if (HomeContent is not null)
+    {
+        <span slot="home">@HomeContent</span>
+    }
+</gcds-top-nav>

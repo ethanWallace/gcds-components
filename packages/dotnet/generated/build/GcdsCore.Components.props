@@ -1,0 +1,8 @@
+<Project>
+  <!-- Auto-imported by consumers via NuGet's build/ convention.
+       Registers Tag Helpers from this package without requiring
+       a manual @addTagHelper directive in _ViewImports.cshtml. -->
+  <ItemGroup>
+    <RazorGenerateComponentsAssembly Include="GcdsCore.Components" />
+  </ItemGroup>
+</Project>

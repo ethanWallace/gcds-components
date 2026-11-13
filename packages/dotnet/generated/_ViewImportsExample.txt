@@ -1,0 +1,13 @@
+For Razor Pages / MVC consumers who don't get the auto-registration via
+the packaged .props file, the manual equivalent in _ViewImports.cshtml is:
+
+    @addTagHelper *, GcdsCore.Components
+
+For Blazor consumers, add to _Imports.razor:
+
+    @using GcdsCore.Components
+
+And reference the interop script once in your host page (index.html for
+Blazor WASM, or _Host.cshtml / App.razor for Blazor Server):
+
+    <script src="_content/YOUR_PACKAGE_ID/customElementInterop.js"></script>

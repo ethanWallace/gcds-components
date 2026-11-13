@@ -1,0 +1,10 @@
+@* Generated from Custom Elements Manifest — do not edit directly *@
+@inherits GeneratedComponentBase
+<gcds-card @ref="Element" @attributes="AdditionalAttributes" class="@GetCssClass()" style="@GetStyle()" badge="@Badge" card-title="@CardTitle" card-title-tag="@GeneratedTypeConversions.ToAttributeValue(CardTitleTag)" description="@Description" href="@Href" img-alt="@ImgAlt" img-src="@ImgSrc" rel="@Rel" target="@Target">
+    @ChildContent
+
+    @if (TitleContent is not null)
+    {
+        <span slot="title">@TitleContent</span>
+    }
+</gcds-card>

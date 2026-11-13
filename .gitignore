@@ -53,4 +53,5 @@ packages/react/lib/components.ts
 # Duplicate global css file
 packages/react/gcds.css
 packages/vue/gcds.css
-packages/react-ssr/gcds.css
+
+packages/dotnet/out

@@ -1,0 +1,10 @@
+{
+  "name": "@gcds-core/components-dotnet",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "devDependencies": {
+    "@gcds-core/components": "file:../web"
+  }
+}
